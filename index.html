@@ -8,7 +8,7 @@
   <meta name="description" content="Преміальний професійний догляд і косметика з Італії. Індивідуальні програми, естетичні процедури та домашні ритуали краси." />
   <meta name="referrer" content="no-referrer">
 
-  <!-- Share preview -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Irina Kolokolova Cosmetology — Професійний догляд">
   <meta property="og:description" content="Преміальний професійний догляд і косметика з Італії. Індивідуальні програми, естетичні процедури та домашні ритуали краси.">
@@ -17,20 +17,34 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:url" content="https://ekolokolov369-hue.github.io/ikcosmetology/">
+
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Irina Kolokolova Cosmetology — Професійний догляд">
   <meta name="twitter:description" content="Преміальний професійний догляд і косметика з Італії. Індивідуальні програми, естетичні процедури та домашні ритуали краси.">
   <meta name="twitter:image" content="https://images.weserv.nl/?url=i.ibb.co/nssBGshp/60.png">
 
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="https://images.weserv.nl/?url=i.ibb.co/nssBGshp/60.png"/>
 
+  <!-- Preload -->
+  <link rel="preload" as="image" href="https://images.weserv.nl/?url=i.ibb.co/v4FtNPkf/54.png" fetchpriority="high">
+  <link rel="preload" as="image" href="https://images.weserv.nl/?url=i.ibb.co/nssBGshp/60.png">
+
   <style>
-    :root{ --primary:#88bbb5; --primary-700:#6aa39d; --text:#000; --muted:#5f5f5f; --bg:#fff; --radius:16px; --shadow:0 10px 30px rgba(0,0,0,.07); }
+    :root{
+      --primary:#88bbb5; --primary-700:#6aa39d;
+      --text:#000; --muted:#5f5f5f; --bg:#fff;
+      --radius:16px; --shadow:0 10px 30px rgba(0,0,0,.07);
+    }
     *{box-sizing:border-box}
-    html,body{margin:0;background:var(--bg);color:var(--muted);font-family:"Source Sans Pro",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;overflow-x:hidden;-webkit-text-size-adjust:100%;touch-action:pan-y}
+    html,body{margin:0;background:var(--bg);color:var(--muted);
+      font-family:"Source Sans Pro",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      overflow-x:hidden;-webkit-text-size-adjust:100%;touch-action:pan-y}
     a{color:var(--primary);text-decoration:none}
     a:hover{color:var(--primary-700)}
     img{display:block;max-width:100%;height:auto}
+
     .container{max-width:1250px;margin:0 auto;padding:0 16px}
 
     /* HEADER */
@@ -39,22 +53,27 @@
     .logo-wrap{display:flex;justify-content:center}
     .logo-wrap img{height:56px;width:auto}
     .header-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:8px 0 10px}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:38px;padding:0 12px;border-radius:999px;border:1px solid var(--primary);background:var(--primary);color:#fff;font-weight:700;letter-spacing:.04em;text-transform:uppercase;font-size:.74rem;box-shadow:var(--shadow);transition:.15s}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      height:38px;padding:0 12px;border-radius:999px;border:1px solid var(--primary);
+      background:var(--primary);color:#fff;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+      font-size:.74rem;box-shadow:var(--shadow);transition:.15s}
     .btn:hover{transform:translateY(-1px);background:var(--primary-700);border-color:var(--primary-700)}
     .btn .icon{width:17px;height:17px}
     .btn-ghost{background:transparent;color:var(--primary)}
     .btn-ghost:hover{background:var(--primary);color:#fff}
     @media (max-width:390px){.btn{font-size:.7rem;height:36px;padding:0 10px}.btn .icon{width:16px;height:16px}}
 
-    /* HERO */
+    /* HERO SLIDER (переведено на <img>) */
     .hero{position:relative}
     .slide{position:relative;min-height:320px;display:flex;align-items:flex-end;overflow:hidden}
-    .slide .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-    .slide .overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.28),rgba(0,0,0,.42))}
+    .slide-media{position:absolute;inset:0;z-index:0}
+    .slide-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    .slide::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.28),rgba(0,0,0,.42));z-index:0}
     .slide-content{position:relative;z-index:1;width:100%}
     .hero-text{color:#fff;text-align:center;padding:22px 14px 20px;text-shadow:0 1px 2px rgba(0,0,0,.35)}
     .hero-text h1{margin:0 0 8px;font-size:clamp(22px,5vw,30px);font-weight:800}
     .hero-text p{margin:0 auto;max-width:820px;color:#f5f5f5}
+
     .hero-nav{position:absolute;top:50%;left:0;right:0;display:flex;justify-content:space-between;transform:translateY(-50%);padding:0 6px;pointer-events:none}
     .hero-btn{pointer-events:auto;width:40px;height:40px;border-radius:999px;border:1px solid #fff;background:rgba(255,255,255,.2);backdrop-filter:blur(2px);display:grid;place-items:center;color:#fff}
     .hero-dots{position:absolute;left:0;right:0;bottom:8px;display:flex;gap:6px;justify-content:center}
@@ -77,14 +96,15 @@
     .order-cta .button{width:100%;background:var(--primary);border:1px solid var(--primary);color:#fff;border-radius:999px;height:42px;display:flex;align-items:center;justify-content:center;font-weight:700;letter-spacing:.04em}
     .order-cta .button:hover{background:var(--primary-700);border-color:var(--primary-700)}
 
-    /* BANNERS */
+    /* BANNERS (тоже на <img>) */
     .banner-wrap{padding:18px 0}
     .banner-narrow{max-width:950px;margin:0 auto}
     .banner-row{display:grid;gap:14px;grid-template-columns:repeat(3,1fr)}
     @media (max-width:900px){.banner-row{grid-template-columns:1fr}}
     .banner{position:relative;border-radius:var(--radius);overflow:hidden;min-height:132px;box-shadow:var(--shadow);display:flex;align-items:flex-end;color:#fff}
-    .banner .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-    .banner .overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.22),rgba(0,0,0,.4))}
+    .banner-media{position:absolute;inset:0;z-index:0}
+    .banner-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    .banner .overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.22),rgba(0,0,0,.4));z-index:0}
     .banner .content{position:relative;z-index:1;padding:16px}
     .banner h3{margin:0;color:#fff;font-size:clamp(18px,4vw,26px);font-weight:800}
 
@@ -100,6 +120,11 @@
   </style>
 
   <script>
+    // CDN-прокси (единый путь)
+    const cdn = u => `https://images.weserv.nl/?url=${encodeURIComponent(u.replace(/^https?:\/\//,''))}`;
+    const placeholder = cdn('https://i.ibb.co/nssBGshp/60.png');
+
+    // запрет pinch-zoom
     document.addEventListener('touchmove', e => { if (e.scale !== 1) e.preventDefault(); }, {passive:false});
   </script>
 </head>
@@ -108,7 +133,7 @@
   <header class="header">
     <div class="container header-top">
       <div class="logo-wrap">
-        <img src="https://images.weserv.nl/?url=i.ibb.co/9X7PvSy/2025-10-30-160911.png" alt="Irina Kolokolova Cosmetology" loading="eager" decoding="async" fetchpriority="high" referrerpolicy="no-referrer">
+        <img src="https://images.weserv.nl/?url=i.ibb.co/9X7PvSy/2025-10-30-160911.png" alt="Irina Kolokolova Cosmetology" loading="eager" decoding="async" fetchpriority="high">
       </div>
       <div class="header-actions">
         <a class="btn" href="tel:+380960120122" aria-label="Подзвонити">
@@ -154,16 +179,19 @@
     <div class="banner-narrow">
       <div class="banner-row">
         <div class="banner" id="bn-discount">
-          <img class="bg" src="" alt="" referrerpolicy="no-referrer">
-          <div class="overlay"></div><div class="content"><h3>Знижки</h3></div>
+          <div class="banner-media"></div>
+          <div class="overlay"></div>
+          <div class="content"><h3>Знижки</h3></div>
         </div>
         <div class="banner" id="bn-delivery">
-          <img class="bg" src="" alt="" referrerpolicy="no-referrer">
-          <div class="overlay"></div><div class="content"><h3>Доставка</h3></div>
+          <div class="banner-media"></div>
+          <div class="overlay"></div>
+          <div class="content"><h3>Доставка</h3></div>
         </div>
         <div class="banner" id="bn-consult">
-          <img class="bg" src="" alt="" referrerpolicy="no-referrer">
-          <div class="overlay"></div><div class="content"><h3>Консультація</h3></div>
+          <div class="banner-media"></div>
+          <div class="overlay"></div>
+          <div class="content"><h3>Консультація</h3></div>
         </div>
       </div>
     </div>
@@ -208,10 +236,7 @@
       if(!ok){ e.preventDefault(); e.stopPropagation(); }
     }, {capture:true});
 
-    // CDN-прокси против 403 хотлинка
-    const cdn = u => `https://images.weserv.nl/?url=${encodeURIComponent(u.replace(/^https?:\/\//,''))}`;
-
-    /* ================= HERO SLIDES ================= */
+    /* ================= HERO SLIDES (IMG) ================= */
     const slides = [
       { img: cdn('https://i.ibb.co/v4FtNPkf/54.png'), title: 'Преміальний професійний догляд і косметика з Італії',
         text: 'Дбайливо підбираю процедури та домашні засоби для сяйва шкіри у будь-якому віці.' },
@@ -238,8 +263,10 @@
         const el = document.createElement('div');
         el.className='slide';
         el.innerHTML = `
-          <img class="bg" src="${s.img}" alt="" referrerpolicy="no-referrer">
-          <div class="overlay"></div>
+          <div class="slide-media">
+            <img src="${s.img}" alt="" loading="${i===0?'eager':'lazy'}" decoding="async"
+                 onerror="this.onerror=null; this.src='${placeholder}'">
+          </div>
           <div class="container slide-content">
             <div class="hero-text">
               <h1>${s.title}</h1>
@@ -265,6 +292,7 @@
       dotsWrap.querySelectorAll('.hero-dot').forEach((d,k)=> d.classList.toggle('active', k===idx));
     }
     activate(0);
+
     document.getElementById('prev').onclick=()=>activate(idx-1);
     document.getElementById('next').onclick=()=>activate(idx+1);
 
@@ -280,7 +308,7 @@
       });
     })();
 
-    // PRODUCTS
+    /* ================= PRODUCTS ================= */
     const items = [
       {img:'https://vivabeauty.ee/wp-content/uploads/2022/09/cc11.jpg', title:'Очищувальне молочко з мікронізованим екстрактом вівса', price:'29,00 €'},
       {img:'https://vivabeauty.ee/wp-content/uploads/2022/09/cc12.jpg', title:'Тонік «Морква, Женьшень і Центела азійська»', price:'29,00 €'},
@@ -294,7 +322,10 @@
     const grid=document.getElementById('products-grid');
     grid.innerHTML = items.map(p=>`
       <article class="product">
-        <div class="img-wrap"><img src="${p.img}" alt="${p.title}" loading="lazy" decoding="async"></div>
+        <div class="img-wrap">
+          <img src="${cdn(p.img)}" alt="${p.title}" loading="lazy" decoding="async"
+               onerror="this.onerror=null; this.src='${placeholder}'">
+        </div>
         <div class="info">
           <h3 class="title">${p.title}</h3>
           ${p.price && p.price!=='—' ? `<div class="price">${p.price}</div>` : ``}
@@ -304,10 +335,15 @@
         </div>
       </article>`).join('');
 
-    // BANNERS (тоже <img> вместо фона)
-    document.querySelector('#bn-discount .bg').src = cdn('https://i.ibb.co/v4FtNPkf/54.png');
-    document.querySelector('#bn-delivery .bg').src = cdn('https://i.ibb.co/PzPk1zWD/55.png');
-    document.querySelector('#bn-consult  .bg').src = cdn('https://i.ibb.co/xKQ9Vxsr/56.png');
+    /* ================= BANNERS (IMG) ================= */
+    function setBannerImg(id, url){
+      const wrap = document.getElementById(id).querySelector('.banner-media');
+      wrap.innerHTML = `<img src="${cdn(url)}" alt="" loading="lazy" decoding="async"
+                         onerror="this.onerror=null; this.src='${placeholder}'">`;
+    }
+    setBannerImg('bn-discount','https://i.ibb.co/v4FtNPkf/54.png');
+    setBannerImg('bn-delivery','https://i.ibb.co/PzPk1zWD/55.png');
+    setBannerImg('bn-consult','https://i.ibb.co/xKQ9Vxsr/56.png');
   </script>
 </body>
 </html>
