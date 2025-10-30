@@ -1,328 +1,202 @@
 <!DOCTYPE html>
-<html lang="uk-UA" class="loading-site no-js">
+<html lang="uk-UA" class="loading-site js">
 <head>
   <meta charset="UTF-8" />
+  <script>(function(h){h.className=h.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
+  <title>Vivabeauty — Товари</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>By Irina Kolokolova — Магазин</title>
-  <script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
-
-  <!-- Тема/дизайн (як в оригіналі) -->
-  <link rel='stylesheet' href='https://vivabeauty.ee/wp-content/themes/flatsome/assets/css/flatsome.css?ver=3.16.4' media='all' />
-  <link rel='stylesheet' href='https://vivabeauty.ee/wp-content/themes/flatsome/assets/css/flatsome-shop.css?ver=3.16.4' media='all' />
-
-  <!-- Гарний шрифт для назви бренду -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-
+  <link rel='stylesheet' href='https://vivabeauty.ee/wp-content/themes/flatsome/assets/css/flatsome.css?ver=3.16.4' type='text/css' media='all' />
+  <link rel='stylesheet' href='https://vivabeauty.ee/wp-content/themes/flatsome/assets/css/flatsome-shop.css?ver=3.16.4' type='text/css' media='all' />
   <style>
-    :root { --primary-color:#88bbb5; }
-    body{font-family:"Source Sans Pro",system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;color:#5f5f5f}
-    h1,h2,h3,h4,h5,h6{color:#000}
-
-    /* Простий, елегантний текст-логотип */
-    .brandbar{position:sticky;top:0;z-index:99;background:#fff;border-bottom:1px solid #eee}
-    .brandbar .container{max-width:1250px;margin:0 auto;padding:18px 16px;display:flex;align-items:center;justify-content:center}
-    .text-logo{
-      font-family:"Playfair Display",serif; /* красивий шрифт */
-      font-weight:700;
-      font-size:32px;
-      letter-spacing:.04em;
-      color:#0a0a0a
-    }
-    .text-logo b{color:var(--primary-color);font-weight:700}
-
-    /* Секція товарів */
-    .wrap{max-width:1250px;margin:24px auto;padding:0 16px}
-    .section-title{text-align:center;margin:32px 0 18px}
-    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
-    @media (max-width:1024px){.grid{grid-template-columns:repeat(3,1fr)}}
-    @media (max-width:640px){.grid{grid-template-columns:repeat(2,1fr)}}
-    .product-small.box{border:1px solid #eee;border-radius:14px;overflow:hidden;background:#fff;transition:transform .2s,box-shadow .2s}
-    .product-small.box:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.06)}
-    .box-image{position:relative;background:#fafafa}
-    .box-image img{display:block;width:100%;height:auto}
-    .box-text{text-align:center;padding:14px 12px 18px}
-    .product-title{font-size:15px;line-height:1.35;margin:8px 0 10px}
-    .price bdi{font-weight:700}
-    .category{margin:0;color:#888;font-size:11px;letter-spacing:.08em}
-
-    /* Кнопка "Замовити" під товаром */
-    .btn-order{
-      display:inline-block;
-      margin-top:10px;
-      padding:10px 16px;
-      border-radius:999px;
-      border:1px solid var(--primary-color);
-      background:linear-gradient(180deg, #9dd1cb 0%, #88bbb5 100%);
-      color:#fff !important;
-      font-weight:600;
-      font-size:14px;
-      line-height:1;
-      text-decoration:none;
-      box-shadow:0 6px 14px rgba(136,187,181,.28);
-      transition:transform .15s ease, box-shadow .15s ease, filter .15s ease;
-    }
-    .btn-order:hover{
-      transform:translateY(-1px);
-      box-shadow:0 10px 20px rgba(136,187,181,.35);
-      filter:saturate(1.05);
-    }
-    .btn-order:active{transform:translateY(0)}
-    /* Мінімалістичний футер */
-    .foot{margin:40px 0 28px;text-align:center;color:#9a9a9a;font-size:13px}
+    :root { --primary:#88bbb5; --text:#000; }
+    body{font-family: "Source Sans Pro",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;}
+    /* Шапка: логотип + контакты */
+    .header-main{border-bottom:1px solid #eee}
+    .header-inner{display:flex;align-items:center;gap:24px;min-height:80px;max-width:1250px;margin:0 auto;padding:12px 16px}
+    #logo img{height:56px;width:auto;display:block}
+    .header-contacts{display:flex;gap:16px;align-items:center;margin-left:auto;flex-wrap:wrap}
+    .contact-pill{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid var(--primary);border-radius:999px;color:var(--primary);text-decoration:none;font-weight:600;transition:all .15s}
+    .contact-pill:hover{background:var(--primary);color:#fff}
+    .contact-pill svg{width:18px;height:18px;display:block}
+    /* Сетка товарів */
+    .content-area{max-width:1250px;margin:0 auto;padding:24px 16px 60px}
+    .products-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+    @media (max-width:1024px){.products-grid{grid-template-columns:repeat(3,1fr)}}
+    @media (max-width:640px){.products-grid{grid-template-columns:repeat(2,1fr)}}
+    .product-small .box{display:flex;flex-direction:column;height:100%}
+    .product-small .box-image{position:relative;overflow:hidden;border:1px solid #eee;border-radius:14px}
+    .product-small .box-image img{width:100%;height:auto;display:block}
+    .product-small .box-text{display:flex;flex-direction:column;gap:6px;padding:12px}
+    .product-title{font-weight:700;font-size:14px;line-height:1.25;color:#111;margin:0}
+    .price{font-weight:700}
+    .order-cta .button{display:block;width:100%;padding:10px 12px;border:1px solid #0a0a0a;border-radius:10px;text-align:center;text-decoration:none;font-weight:600;color:#0a0a0a}
+    .order-cta .button:hover{background:#0a0a0a;color:#fff}
+    /* Скрываем всё неиспользуемое (на случай остаточных классов темы) */
+    .nav, .header-search, .account-item, .cart-item, .mobile-nav, #main-menu,
+    footer, .section, .banner, .mkdf-st-title, .mkdf-st-subtitle, .mkdf-st-text,
+    .gap-element + .row:not(.products-grid), .row-slider, .back-to-top,
+    .absolute-footer, #top-bar { display:none !important; }
+    /* Убираем выделение ссылок-«заглушек» */
+    .no-link{pointer-events:none;cursor:default;text-decoration:none}
   </style>
 </head>
-<body class="lightbox nav-dropdown-has-arrow nav-dropdown-has-shadow nav-dropdown-has-border">
+<body class="home page">
+  <div id="wrapper">
+    <header id="header" class="header has-sticky sticky-jump">
+      <div class="header-wrapper">
+        <div id="masthead" class="header-main">
+          <div class="header-inner">
+            <!-- ЛОГО БЕЗ ССЫЛКИ -->
+            <div id="logo">
+              <img src="https://i.ibb.co/WpxR2cGD/2025-10-30-125811.png" alt="Vivabeauty логотип"/>
+            </div>
 
-  <!-- Шапка з текстовим логотипом (без зображень) -->
-  <header class="brandbar" role="banner" aria-label="Верхня панель">
-    <div class="container">
-      <div class="text-logo" aria-label="Логотип">
-        By <b>Irina&nbsp;Kolokolova</b>
+            <!-- КОНТАКТЫ СПРАВА -->
+            <div class="header-contacts">
+              <!-- Телефон -->
+              <a class="contact-pill" href="tel:+380960120122" aria-label="Зателефонувати +380960120122" rel="nofollow">
+                <!-- Иконка телефона (SVG) -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.12.86.32 1.7.59 2.5a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.58-1.11a2 2 0 0 1 2.11-.45c.8.27 1.64.47 2.5.59A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                <span>+380&nbsp;96&nbsp;012&nbsp;01&nbsp;22</span>
+              </a>
+
+              <!-- Instagram -->
+              <a class="contact-pill" href="https://instagram.com/irina.kolokolova_cosmetology" target="_blank" rel="noopener nofollow" aria-label="Instagram @irina.kolokolova_cosmetology">
+                <!-- Иконка Instagram (SVG) -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line>
+                </svg>
+                <span>@irina.kolokolova_cosmetology</span>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <main id="main" role="main">
-    <div class="wrap">
-      <h2 class="section-title">Усі товари</h2>
-
-      <!-- Сітка товарів -->
-      <div class="grid" aria-label="Каталог товарів">
-        <!-- ОЧИЩУВАЛЬНЕ МОЛОЧКО З МІКРОНІЗОВАНИМ ЕКСТРАКТОМ ВІВСА -->
-        <div class="product-small box">
-          <div class="box-image">
-            <a href="https://vivabeauty.ee/ru/product/%d0%be%d1%87%d0%b8%d1%89%d0%b0%d1%8e%d1%89%d0%b5%d0%b5-%d0%bc%d0%be%d0%bb%d0%be%d1%87%d0%ba%d0%be-%d1%81-%d0%bc%d0%b8%d0%ba%d1%80%d0%be%d0%bd%d0%b8%d0%b7%d0%b8%d1%80%d0%be%d0%b2%d0%b0%d0%bd%d0%bd-2/">
-              <img loading="lazy" src="https://vivabeauty.ee/wp-content/uploads/2022/09/cc11.jpg" alt="Очищувальне молочко з мікронізованим екстрактом вівса">
-            </a>
+    <main id="main">
+      <div id="content" class="content-area" role="main">
+        <!-- ОСТАВЛЕНЫ ТОЛЬКО ТОВАРЫ (без ссылок на страницы товара) -->
+        <div class="products-grid">
+          <!-- 1 -->
+          <div class="product-small box has-hover box-normal box-text-bottom">
+            <div class="box-image">
+              <img src="https://vivabeauty.ee/wp-content/uploads/2022/09/cc11.jpg" alt="Очищающее молочко з екстрактом вівса">
+            </div>
+            <div class="box-text">
+              <p class="product-title">ОЧИЩАЮЩЕЕ МОЛОЧКО С МИКРОНИЗИРОВАННЫМ ЭКСТРАКТОМ ОВСА</p>
+              <div class="price"><span class="woocommerce-Price-amount amount">29,00&nbsp;€</span></div>
+              <div class="order-cta">
+                <a href="https://t.me/cosmetologg_iryna" target="_blank" rel="noopener" class="button">Замовити</a>
+              </div>
+            </div>
           </div>
-          <div class="box-text">
-            <p class="product-title">Очищувальне молочко з мікронізованим екстрактом вівса</p>
-            <div class="price"><span class="woocommerce-Price-amount amount"><bdi>29,00&nbsp;<span class="woocommerce-Price-currencySymbol">€</span></bdi></span></div>
-            <a class="btn-order" href="https://t.me/cosmetologg_iryna" target="_blank" rel="noopener">Замовити</a>
+
+          <!-- 2 -->
+          <div class="product-small box has-hover box-normal box-text-bottom">
+            <div class="box-image">
+              <img src="https://vivabeauty.ee/wp-content/uploads/2022/09/cc12.jpg" alt="Тоник Морква Женьшень Центелла">
+            </div>
+            <div class="box-text">
+              <p class="product-title">ТОНИК БАРХАТИСТЫЙ МОРКОВЬ ЖЕНЬШЕНЬ И ЦЕНТЕЛЛА АЗИАТСКАЯ</p>
+              <div class="price"><span class="woocommerce-Price-amount amount">29,00&nbsp;€</span></div>
+              <div class="order-cta">
+                <a href="https://t.me/cosmetologg_iryna" target="_blank" rel="noopener" class="button">Замовити</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3 -->
+          <div class="product-small box has-hover box-normal box-text-bottom">
+            <div class="box-image">
+              <img src="https://vivabeauty.ee/wp-content/uploads/2022/09/cc13.jpg" alt="Очищающий гель ромашка календула">
+            </div>
+            <div class="box-text">
+              <p class="product-title">ОЧИЩАЮЩИЙ ГЕЛЬ ДЛЯ СНЯТИЯ МАКИЯЖА РОМАШКА И КАЛЕНДУЛА</p>
+              <div class="price"><span class="woocommerce-Price-amount amount">29,00&nbsp;€</span></div>
+              <div class="order-cta">
+                <a href="https://t.me/cosmetologg_iryna" target="_blank" rel="noopener" class="button">Замовити</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4 -->
+          <div class="product-small box has-hover box-normal box-text-bottom">
+            <div class="box-image">
+              <img src="https://vivabeauty.ee/wp-content/uploads/2022/09/cc14.jpg" alt="Увлажняющее очищающее молочко">
+            </div>
+            <div class="box-text">
+              <p class="product-title">УВЛАЖНЯЮЩЕЕ ОЧИЩАЮЩЕЕ МОЛОЧКО</p>
+              <div class="price"><span class="woocommerce-Price-amount amount">29,00&nbsp;€</span></div>
+              <div class="order-cta">
+                <a href="https://t.me/cosmetologg_iryna" target="_blank" rel="noopener" class="button">Замовити</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5 -->
+          <div class="product-small box has-hover box-normal box-text-bottom">
+            <div class="box-image">
+              <img src="https://vivabeauty.ee/wp-content/uploads/2022/09/cc15.jpg" alt="Увлажняющий тоник">
+            </div>
+            <div class="box-text">
+              <p class="product-title">УВЛАЖНЯЮЩИЙ ТОНИК</p>
+              <div class="price"><span class="woocommerce-Price-amount amount">29,00&nbsp;€</span></div>
+              <div class="order-cta">
+                <a href="https://t.me/cosmetologg_iryna" target="_blank" rel="noopener" class="button">Замовити</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6 -->
+          <div class="product-small box has-hover box-normal box-text-bottom">
+            <div class="box-image">
+              <img src="https://vivabeauty.ee/wp-content/uploads/2022/09/cc16.jpg" alt="Мультивитаминный антивозрастной очищающий гель">
+            </div>
+            <div class="box-text">
+              <p class="product-title">МУЛЬТИВИТАМИННЫЙ АНТИВОЗРАСТНОЙ ОЧИЩАЮЩИЙ ГЕЛЬ</p>
+              <div class="price"><span class="woocommerce-Price-amount amount">29,00&nbsp;€</span></div>
+              <div class="order-cta">
+                <a href="https://t.me/cosmetologg_iryna" target="_blank" rel="noopener" class="button">Замовити</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7 -->
+          <div class="product-small box has-hover box-normal box-text-bottom">
+            <div class="box-image">
+              <img src="https://vivabeauty.ee/wp-content/uploads/2022/09/cc18.jpg" alt="Тоник для чутливої шкіри">
+            </div>
+            <div class="box-text">
+              <p class="product-title">ТОНИК ДЛЯ ЧУВСТВИТЕЛЬНОЙ КОЖИ</p>
+              <div class="price"><span class="woocommerce-Price-amount amount">29,00&nbsp;€</span></div>
+              <div class="order-cta">
+                <a href="https://t.me/cosmetologg_iryna" target="_blank" rel="noopener" class="button">Замовити</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 8 -->
+          <div class="product-small box has-hover box-normal box-text-bottom">
+            <div class="box-image">
+              <img src="https://vivabeauty.ee/wp-content/uploads/2022/09/glp1.jpg" alt="GLICO PEEL гліколевий пілінг 50%">
+            </div>
+            <div class="box-text">
+              <p class="product-title">GLICO PEEL ГЛИКОЛЕВЫЙ ПИЛИНГ 50% (для профессионального использования)</p>
+              <div class="price"><span class="woocommerce-Price-amount amount">0,00&nbsp;€</span></div>
+              <div class="order-cta">
+                <a href="https://t.me/cosmetologg_iryna" target="_blank" rel="noopener" class="button">Замовити</a>
+              </div>
+            </div>
           </div>
         </div>
-
-        <!-- ТОНІК «ОКСАМИТОВИЙ» МОРКВА, ЖЕНЬШЕНЬ І ЦЕНТЕЛА АЗІЙСЬКА -->
-        <div class="product-small box">
-          <div class="box-image">
-            <a href="https://vivabeauty.ee/ru/product/%d1%82%d0%be%d0%bd%d0%b8%d0%ba-%d0%b1%d0%b0%d1%80%d1%85%d0%b0%d1%82%d0%b8%d1%81%d1%82%d1%8b%d0%b9-%d0%bc%d0%be%d1%80%d0%ba%d0%be%d0%b2%d1%8c-%d0%b6%d0%b5%d0%bd%d1%88%d0%b5%d0%bd%d1%8c-%d0%b8-2/">
-              <img loading="lazy" src="https://vivabeauty.ee/wp-content/uploads/2022/09/cc12.jpg" alt="Тонік «Оксамитовий» Морква, Женьшень і Центела Азійська">
-            </a>
-          </div>
-          <div class="box-text">
-            <p class="product-title">Тонік «Оксамитовий»: морква, женьшень і центела азійська</p>
-            <div class="price"><span class="woocommerce-Price-amount amount"><bdi>29,00&nbsp;<span class="woocommerce-Price-currencySymbol">€</span></bdi></span></div>
-            <a class="btn-order" href="https://t.me/cosmetologg_iryna" target="_blank" rel="noopener">Замовити</a>
-          </div>
-        </div>
-
-        <!-- ОЧИЩУВАЛЬНИЙ ГЕЛЬ ДЛЯ ЗНЯТТЯ МАКІЯЖУ -->
-        <div class="product-small box">
-          <div class="box-image">
-            <a href="https://vivabeauty.ee/ru/product/%d0%be%d1%87%d0%b8%d1%89%d0%b0%d1%8e%d1%89%d0%b8%d0%b9-%d0%b3%d0%b5%d0%bb%d1%8c-%d0%b4%d0%bb%d1%8f-%d1%81%d0%bd%d1%8f%d1%82%d0%b8%d1%8f-%d0%bc%d0%b0%d0%ba%d0%b8%d1%8f%d0%b6%d0%b0-%d1%80%d0%be%d0%bc-2/">
-              <img loading="lazy" src="https://vivabeauty.ee/wp-content/uploads/2022/09/cc13.jpg" alt="Очищувальний гель для зняття макіяжу ромашка та календула">
-            </a>
-          </div>
-          <div class="box-text">
-            <p class="product-title">Очищувальний гель для зняття макіяжу: ромашка та календула</p>
-            <div class="price"><span class="woocommerce-Price-amount amount"><bdi>29,00&nbsp;<span class="woocommerce-Price-currencySymbol">€</span></bdi></span></div>
-            <a class="btn-order" href="https://t.me/cosmetologg_iryna" target="_blank" rel="noopener">Замовити</a>
-          </div>
-        </div>
-
-        <!-- ЗВОЛОЖУВАЛЬНЕ ОЧИЩУВАЛЬНЕ МОЛОЧКО -->
-        <div class="product-small box">
-          <div class="box-image">
-            <a href="https://vivabeauty.ee/ru/product/%d1%83%d0%b2%d0%bb%d0%b0%d0%b6%d0%bd%d1%8f%d1%8e%d1%89%d0%b5%d0%b5-%d0%be%d1%87%d0%b8%d1%89%d0%b0%d1%8e%d1%89%d0%b5%d0%b5-%d0%bc%d0%be%d0%bb%d0%be%d1%87%d0%ba%d0%be/">
-              <img loading="lazy" src="https://vivabeauty.ee/wp-content/uploads/2022/09/cc14.jpg" alt="Зволожувальне очищувальне молочко">
-            </a>
-          </div>
-          <div class="box-text">
-            <p class="product-title">Зволожувальне очищувальне молочко</p>
-            <div class="price"><span class="woocommerce-Price-amount amount"><bdi>29,00&nbsp;<span class="woocommerce-Price-currencySymbol">€</span></bdi></span></div>
-            <a class="btn-order" href="https://t.me/cosmetologg_iryna" target="_blank" rel="noopener">Замовити</a>
-          </div>
-        </div>
-
-        <!-- ЗВОЛОЖУВАЛЬНИЙ ТОНІК -->
-        <div class="product-small box">
-          <div class="box-image">
-            <a href="https://vivabeauty.ee/ru/product/%d1%83%d0%b2%d0%bb%d0%b0%d0%b6%d0%bd%d1%8f%d1%8e%d1%89%d0%b8%d0%b9-%d1%82%d0%be%d0%bd%d0%b8%d0%ba-2/">
-              <img loading="lazy" src="https://vivabeauty.ee/wp-content/uploads/2022/09/cc15.jpg" alt="Зволожувальний тонік">
-            </a>
-          </div>
-          <div class="box-text">
-            <p class="product-title">Зволожувальний тонік</p>
-            <div class="price"><span class="woocommerce-Price-amount amount"><bdi>29,00&nbsp;<span class="woocommerce-Price-currencySymbol">€</span></bdi></span></div>
-            <a class="btn-order" href="https://t.me/cosmetologg_iryna" target="_blank" rel="noopener">Замовити</a>
-          </div>
-        </div>
-
-        <!-- МУЛЬТИВІТАМІННИЙ АНТИВІКОВИЙ ОЧИЩУВАЛЬНИЙ ГЕЛЬ -->
-        <div class="product-small box">
-          <div class="box-image">
-            <a href="https://vivabeauty.ee/ru/product/%d0%bc%d1%83%d0%bb%d1%8c%d1%82%d0%b8%d0%b2%d0%b8%d1%82%d0%b0%d0%bc%d0%b8%d0%bd%d0%bd%d1%8b%d0%b9-%d0%b0%d0%bd%d1%82%d0%b8%d0%b2%d0%be%d0%b7%d1%80%d0%b0%d1%81%d1%82%d0%bd%d0%be%d0%b9-%d0%be%d1%87%d0%b8/">
-              <img loading="lazy" src="https://vivabeauty.ee/wp-content/uploads/2022/09/cc16.jpg" alt="Мультивітамінний антивіковий очищувальний гель">
-            </a>
-          </div>
-          <div class="box-text">
-            <p class="product-title">Мультивітамінний антивіковий очищувальний гель</p>
-            <div class="price"><span class="woocommerce-Price-amount amount"><bdi>29,00&nbsp;<span class="woocommerce-Price-currencySymbol">€</span></bdi></span></div>
-            <a class="btn-order" href="https://t.me/cosmetologg_iryna" target="_blank" rel="noopener">Замовити</a>
-          </div>
-        </div>
-
-        <!-- ТОНІК ДЛЯ ЧУТЛИВОЇ ШКІРИ -->
-        <div class="product-small box">
-          <div class="box-image">
-            <a href="https://vivabeauty.ee/ru/product/%d1%82%d0%be%d0%bd%d0%b8%d0%ba-%d0%b4%d0%bb%d1%8f-%d1%87%d1%83%d0%b2%d1%81%d1%82%d0%b2%d0%b8%d1%82%d0%b5%d0%bb%d1%8c%d0%bd%d0%be%d0%b9-%d0%ba%d0%be%d0%b6%d0%b8/">
-              <img loading="lazy" src="https://vivabeauty.ee/wp-content/uploads/2022/09/cc18.jpg" alt="Тонік для чутливої шкіри">
-            </a>
-          </div>
-          <div class="box-text">
-            <p class="product-title">Тонік для чутливої шкіри</p>
-            <div class="price"><span class="woocommerce-Price-amount amount"><bdi>29,00&nbsp;<span class="woocommerce-Price-currencySymbol">€</span></bdi></span></div>
-            <a class="btn-order" href="https://t.me/cosmetologg_iryna" target="_blank" rel="noopener">Замовити</a>
-          </div>
-        </div>
-
-        <!-- GLICO PEEL ГЛІКОЛЕВИЙ ПІЛІНГ 50% -->
-        <div class="product-small box">
-          <div class="box-image">
-            <a href="https://vivabeauty.ee/ru/product/glico-peel-%d0%b3%d0%bb%d0%b8%d0%ba%d0%be%d0%bb%d0%b5%d0%b2%d1%8b%d0%b9-%d0%bf%d0%b8%d0%bb%d0%b8%d0%bd%d0%b3-50/">
-              <img loading="lazy" src="https://vivabeauty.ee/wp-content/uploads/2022/09/glp1.jpg" alt="GLICO PEEL гліколевий пілінг 50% (для професійного використання)">
-            </a>
-          </div>
-          <div class="box-text">
-            <p class="product-title">GLICO PEEL гліколевий пілінг 50% (для професійного використання)</p>
-            <div class="price"><span class="woocommerce-Price-amount amount"><bdi>0,00&nbsp;<span class="woocommerce-Price-currencySymbol">€</span></bdi></span></div>
-            <a class="btn-order" href="https://t.me/cosmetologg_iryna" target="_blank" rel="noopener">Замовити</a>
-          </div>
+        <!-- /products-grid -->
+      </div>
+    </main>
   </div>
-
-        <!-- ======= БЛОК «Бестселери» ======= -->
-
-        <!-- Універсальний набір для професійного догляду за шкірою -->
-        <div class="product-small box">
-          <div class="box-image">
-            <a href="https://vivabeauty.ee/ru/product/%d1%83%d0%bd%d0%b8%d0%b2%d0%b5%d1%80%d1%81%d0%b0%d0%bb%d1%8c%d0%bd%d1%8b%d0%b9-%d0%bd%d0%b0%d0%b1%d0%be%d1%80-%d0%b4%d0%bb%d1%8f-%d0%bf%d1%80%d0%be%d1%84%d0%b5%d1%81%d1%81%d0%b8%d0%be%d0%bd%d0%b0/">
-              <img loading="lazy" src="https://vivabeauty.ee/wp-content/uploads/2025/10/IMG_1594-300x300.jpg" alt="Універсальний набір для професійного догляду за шкірою">
-            </a>
-          </div>
-          <div class="box-text">
-            <p class="product-title">Універсальний набір для професійного догляду за шкірою</p>
-            <div class="price"><span class="woocommerce-Price-amount amount"><bdi>0,00&nbsp;<span class="woocommerce-Price-currencySymbol">€</span></bdi></span></div>
-            <a class="btn-order" href="https://t.me/cosmetologg_iryna" target="_blank" rel="noopener">Замовити</a>
-          </div>
-        </div>
-
-        <!-- Пілінг LIFTING PEEL ATCA (pH 2) -->
-        <div class="product-small box">
-          <div class="box-image">
-            <a href="https://vivabeauty.ee/ru/product/%d0%bf%d0%b8%d0%bb%d0%b8%d0%bd%d0%b3-lifting-peel-%d0%b0tca-ph-2/">
-              <img loading="lazy" src="https://vivabeauty.ee/wp-content/uploads/2025/10/image0-2-300x300.jpeg" alt="Пілінг LIFTING PEEL ATCA (pH 2)">
-            </a>
-          </div>
-          <div class="box-text">
-            <p class="product-title">Пілінг LIFTING PEEL ATCA (pH 2)</p>
-            <div class="price"><span class="woocommerce-Price-amount amount"><bdi>0,00&nbsp;<span class="woocommerce-Price-currencySymbol">€</span></bdi></span></div>
-            <a class="btn-order" href="https://t.me/cosmetologg_iryna" target="_blank" rel="noopener">Замовити</a>
-          </div>
-        </div>
-
-        <!-- Живильна та відновлювальна маска -->
-        <div class="product-small box">
-          <div class="box-image">
-            <a href="https://vivabeauty.ee/ru/product/%d0%bf%d0%b8%d1%82%d0%b0%d1%82%d0%b5%d0%bb%d1%8c%d0%bd%d0%b0%d1%8f-%d0%b8-%d0%b2%d0%be%d1%81%d1%81%d1%82%d0%b0%d0%bd%d0%b0%d0%b2%d0%bb%d0%b8%d0%b2%d0%b0%d1%8e%d1%89%d0%b0%d1%8f-%d0%bc%d0%b0%d1%81/">
-              <img loading="lazy" src="https://vivabeauty.ee/wp-content/uploads/2025/07/Image-1-300x300.jpg" alt="Живильна та відновлювальна маска">
-            </a>
-          </div>
-          <div class="box-text">
-            <p class="product-title">Живильна та відновлювальна маска</p>
-            <div class="price"><span class="woocommerce-Price-amount amount"><bdi>0,00&nbsp;<span class="woocommerce-Price-currencySymbol">€</span></bdi></span></div>
-            <a class="btn-order" href="https://t.me/cosmetologg_iryna" target="_blank" rel="noopener">Замовити</a>
-          </div>
-        </div>
-
-        <!-- Глиняна маска для глибокого очищення пор -->
-        <div class="product-small box">
-          <div class="box-image">
-            <a href="https://vivabeauty.ee/ru/product/%d0%b3%d0%bb%d0%b8%d0%bd%d1%8f%d0%bd%d0%b0%d1%8f-%d0%bc%d0%b0%d1%81%d0%ba%d0%b0-%d0%b4%d0%bb%d1%8f-%d0%b3%d0%bb%d1%83%d0%b1%d0%be%d0%ba%d0%be%d0%b3%d0%be-%d0%be%d1%87%d0%b8%d1%89%d0%b5%d0%bd%d0%b8/">
-              <img loading="lazy" src="https://vivabeauty.ee/wp-content/uploads/2025/07/Image-1-1-300x300.jpg" alt="Глиняна маска для глибокого очищення пор">
-            </a>
-          </div>
-          <div class="box-text">
-            <p class="product-title">Глиняна маска для глибокого очищення пор</p>
-            <div class="price"><span class="woocommerce-Price-amount amount"><bdi>0,00&nbsp;<span class="woocommerce-Price-currencySymbol">€</span></bdi></span></div>
-            <a class="btn-order" href="https://t.me/cosmetologg_iryna" target="_blank" rel="noopener">Замовити</a>
-          </div>
-        </div>
-
-        <!-- Сироватка з коензимом Q10 100 мл -->
-        <div class="product-small box">
-          <div class="box-image">
-            <a href="https://vivabeauty.ee/ru/product/%d1%81%d1%8b%d0%b2%d0%be%d1%80%d0%be%d1%82%d0%ba%d0%b0-%d1%81-%d0%ba%d0%be%d1%8d%d0%bd%d0%b7%d0%b8%d0%bc%d0%be%d0%bc-q10-100-%d0%bc%d0%bb/">
-              <img loading="lazy" src="https://vivabeauty.ee/wp-content/uploads/2025/07/scv2c100-300x300.jpg" alt="Сироватка з коензимом Q10 100 мл">
-            </a>
-          </div>
-          <div class="box-text">
-            <p class="product-title">Сироватка з коензимом Q10 100&nbsp;мл</p>
-            <div class="price"><span class="woocommerce-Price-amount amount"><bdi>61,00&nbsp;<span class="woocommerce-Price-currencySymbol">€</span></bdi></span></div>
-            <a class="btn-order" href="https://t.me/cosmetologg_iryna" target="_blank" rel="noopener">Замовити</a>
-          </div>
-        </div>
-
-        <!-- Крем для ніг -->
-        <div class="product-small box">
-          <div class="box-image">
-            <a href="https://vivabeauty.ee/ru/product/%d0%ba%d1%80%d0%b5%d0%bc-%d0%b4%d0%bb%d1%8f-%d0%bd%d0%be%d0%b3/">
-              <img loading="lazy" src="https://vivabeauty.ee/wp-content/uploads/2025/06/cc3-300x300.jpg" alt="Крем для ніг">
-            </a>
-          </div>
-          <div class="box-text">
-            <p class="product-title">Крем для ніг</p>
-            <div class="price"><span class="woocommerce-Price-amount amount"><bdi>21,00&nbsp;<span class="woocommerce-Price-currencySymbol">€</span></bdi></span></div>
-            <a class="btn-order" href="https://t.me/cosmetologg_iryna" target="_blank" rel="noopener">Замовити</a>
-          </div>
-        </div>
-
-        <!-- Крем для рук -->
-        <div class="product-small box">
-          <div class="box-image">
-            <a href="https://vivabeauty.ee/ru/product/%d0%ba%d1%80%d0%b5%d0%bc-%d0%b4%d0%bb%d1%8f-%d1%80%d1%83%d0%ba/">
-              <img loading="lazy" src="https://vivabeauty.ee/wp-content/uploads/2025/06/cc4-300x300.jpg" alt="Крем для рук">
-            </a>
-          </div>
-          <div class="box-text">
-            <p class="product-title">Крем для рук</p>
-            <div class="price"><span class="woocommerce-Price-amount amount"><bdi>21,00&nbsp;<span class="woocommerce-Price-currencySymbol">€</span></bdi></span></div>
-            <a class="btn-order" href="https://t.me/cosmetologg_iryna" target="_blank" rel="noopener">Замовити</a>
-          </div>
-        </div>
-
-        <!-- Кремовий окисник 6% 80 мл -->
-        <div class="product-small box">
-          <div class="box-image">
-            <a href="https://vivabeauty.ee/ru/product/%d0%ba%d1%80%d0%b5%d0%bc%d0%be%d0%be%d0%b1%d1%80%d0%b0%d0%b7%d0%bd%d1%8b%d0%b9-%d0%be%d0%ba%d0%b8%d1%81%d0%bb%d0%b8%d1%82%d0%b5%d0%bb%d1%8c-6-80%d0%bc%d0%bb/">
-              <img loading="lazy" src="https://vivabeauty.ee/wp-content/uploads/2025/06/8MZHUPUcrqTEWAaC7JVrhvKftNRJ85sW5emIQ3vz-300x300.jpg" alt="Кремовий окисник 6% 80 мл">
-            </a>
-          </div>
-          <div class="box-text">
-            <p class="product-title">Кремовий окисник&nbsp;6%&nbsp;— 80&nbsp;мл</p>
-            <div class="price"><span class="woocommerce-Price-amount amount"><bdi>8,20&nbsp;<span class="woocommerce-Price-currencySymbol">€</span></bdi></span></div>
-            <a class="btn-order" href="https://t.me/cosmetologg_iryna" target="_blank" rel="noopener">Замовити</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="foot">© <span id="y"></span> By Irina Kolokolova</div>
-    </div>
-  </main>
-
-  <script>
-    // Поточний рік у футері
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
-
