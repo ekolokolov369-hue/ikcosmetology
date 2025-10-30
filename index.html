@@ -2,7 +2,7 @@
 <html lang="uk-UA" class="js no-zoom">
 <head>
   <meta charset="UTF-8" />
-  <title>ViVaBeauty — Косметологиня Ірина Колоколова</title>
+  <title>Irina Kolokolova Cosmetology — Преміальний догляд та косметика з Італії</title>
 
   <!-- Заборонити масштабування та горизонтальний скрол -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
@@ -72,25 +72,50 @@
     .btn-outline:hover { background: var(--primary); color:#fff }
     .pill { border-radius: 999px }
 
-    /* Хіро-блок */
+    /* Хіро-блок (фон зверху) */
     .hero {
       position: relative;
       background: url('https://vivabeauty.ee/wp-content/uploads/2022/08/h-2-background-img-1.jpg') center/cover no-repeat;
       color: #fff;
-      padding: 80px 0;
+      padding: 40px 0; /* зменшили, бо опис нижче */
     }
     .hero::after {
       content:""; position:absolute; inset:0; background: linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.25));
     }
     .hero > .container { position: relative; z-index: 1 }
-    .hero h1 {
-      margin: 0 0 8px; color:#fff; font-family: Philosopher, Georgia, serif; font-weight: 400; letter-spacing:.02em;
-      font-size: clamp(28px, 5vw, 44px);
-    }
-    .hero p { margin: 0 0 18px; color: #f1f1f1; font-size: 1.05rem }
 
-    /* Секція "Семінари" + "Про бренд" */
-    .section { padding: 56px 0 }
+    /* Блок контактів + опис (після логотипа) */
+    .intro {
+      background: #fff;
+      padding: 28px 0 8px;
+    }
+    .intro .top-line {
+      display: flex; align-items: center; justify-content: space-between; gap: 14px;
+      flex-wrap: wrap;
+    }
+    .contact-stack { display:flex; align-items:center; gap:12px; flex-wrap:wrap }
+    .chip {
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 10px 14px; border:1px solid var(--primary); border-radius: 999px;
+      color:#000; background:#fff; box-shadow: var(--shadow);
+      font-weight:600;
+    }
+    .chip .icon { width:20px; height:20px }
+    .ig-link { color:#000 }
+    .ig-link:hover { color: var(--primary-700) }
+    .desc {
+      margin-top: 18px;
+      background:#fff; border:1px solid #eee; border-radius: var(--radius);
+      padding: 20px; box-shadow: var(--shadow);
+    }
+    .desc h1 {
+      margin: 0 0 8px; color:#000; font-family: Philosopher, Georgia, serif; font-weight: 400; letter-spacing:.02em;
+      font-size: clamp(22px, 3.8vw, 34px);
+    }
+    .desc p { margin: 10px 0; }
+
+    /* Секції */
+    .section { padding: 40px 0 }
     .two-col { display: grid; grid-template-columns: 1.1fr 1fr; gap: 28px }
     @media (max-width: 900px) { .two-col { grid-template-columns: 1fr; } }
 
@@ -129,6 +154,8 @@
     .product .price { color:#000; font-weight: 700 }
     .order-cta { margin-top: auto }
     .order-cta .button { width: 100% } /* В один рівень на всіх картках */
+    .button { background: var(--primary); border: 1px solid var(--primary); color:#fff }
+    .button:hover { background: var(--primary-700); border-color: var(--primary-700) }
 
     /* Банери */
     .banner-row {
@@ -182,7 +209,7 @@
   <header class="header">
     <div class="container header-inner">
       <a class="logo" href="#" aria-label="Головна (без переходів)">
-        <img src="https://i.ibb.co/9X7PvSy/2025-10-30-160911.png" alt="ViVaBeauty by Ірина Колоколова">
+        <img src="https://i.ibb.co/9X7PvSy/2025-10-30-160911.png" alt="Irina Kolokolova Cosmetology">
       </a>
 
       <div class="header-actions">
@@ -193,53 +220,52 @@
           </svg>
           +380&nbsp;96&nbsp;012&nbsp;01&nbsp;22
         </a>
-        <a class="btn pill" href="https://t.me/cosmetologg_iryna" target="_blank" rel="noopener" data-allow="telegram">
-          <!-- Іконка Telegram -->
+
+        <!-- Instagram + нік поруч -->
+        <a class="chip ig-link" href="https://www.instagram.com/irina.kolokolova_cosmetology/" target="_blank" rel="noopener" aria-label="Instagram @irina.kolokolova_cosmetology" data-allow="instagram">
           <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            <path d="M22 2l-7 20-4-9-9-4 20-7z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" fill="none"/>
+            <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2"/>
+            <circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="2"/>
+            <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/>
           </svg>
-          Написати в Telegram
+          @irina.kolokolova_cosmetology
         </a>
       </div>
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- Фонове зображення зверху -->
   <section class="hero">
-    <div class="container">
-      <h1>Преміальна косметика з Італії та професійний догляд</h1>
-      <p>Підбір процедур і домашнього догляду з урахуванням індивідуальних потреб. Консультація — безкоштовно при замовленні від&nbsp;100&nbsp;€.</p>
-      <div>
-        <a class="btn pill" href="https://t.me/cosmetologg_iryna" target="_blank" rel="noopener" data-allow="telegram">Замовити консультацію</a>
-        <a class="btn btn-outline pill" href="mailto:info@vivabeauty.ee" data-allow="mailto">Написати e-mail</a>
-      </div>
-    </div>
+    <div class="container"></div>
   </section>
 
-  <!-- СЕМІНАРИ / ПРО МЕНЕ -->
-  <section class="section">
-    <div class="container two-col">
-      <div class="card">
-        <img src="https://vivabeauty.ee/wp-content/uploads/2022/09/DSC_5128.jpg" alt="Навчання та семінари" />
-        <div class="card-body">
-          <h2 class="mb-0" style="color:#000;font-family:Philosopher,Georgia,serif;font-weight:400">Семінари / Тренінги</h2>
-          <p class="mt-12">ViVaBeauty проводить навчальні семінари для косметологів, косметиків та спа-спеціалістів за різними напрямами й техніками. Підвищуйте кваліфікацію та працюйте впевнено.</p>
-          <a class="btn pill" href="https://t.me/cosmetologg_iryna" target="_blank" rel="noopener" data-allow="telegram">Записатися</a>
+  <!-- Контакти + гарний опис (після лого) -->
+  <section class="intro">
+    <div class="container">
+      <div class="top-line">
+        <div class="contact-stack">
+          <a class="chip" href="tel:+380960120122" data-allow="tel" aria-label="Подзвонити">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.12.9.3 1.78.54 2.63a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.45-1.06a2 2 0 0 1 2.11-.45c.85.24 1.73.42 2.63.54A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            +380&nbsp;96&nbsp;012&nbsp;01&nbsp;22
+          </a>
+
+          <a class="chip ig-link" href="https://www.instagram.com/irina.kolokolova_cosmetology/" target="_blank" rel="noopener" data-allow="instagram">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2"/>
+              <circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="2"/>
+              <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/>
+            </svg>
+            @irina.kolokolova_cosmetology
+          </a>
         </div>
       </div>
 
-      <div class="card">
-        <div class="card-body stack">
-          <h2 class="mb-0" style="color:#000;font-family:Philosopher,Georgia,serif;font-weight:400">Ірина Колоколова</h2>
-          <h3 class="mt-8 mb-0" style="color:#000;font-weight:400">Засновниця ViVaBeauty, косметологиня</h3>
-          <p class="mt-8">Навчаю орієнтуватися у світі косметології, ретельно підбирати продукти та виконувати процедури з урахуванням індивідуальних особливостей кожної людини.</p>
-          <p>25 років у професії — постійний рух, навчання та передача досвіду від новачків до профі. Тримаємо руку на пульсі косметології разом!</p>
-          <div class="stack">
-            <a class="btn pill" href="tel:+380960120122" data-allow="tel">Подзвонити</a>
-            <a class="btn btn-outline pill" href="https://t.me/cosmetologg_iryna" target="_blank" rel="noopener" data-allow="telegram">Зв’язатися в Telegram</a>
-          </div>
-        </div>
+      <div class="desc">
+        <h1>Irina Kolokolova Cosmetology</h1>
+        <p>Преміальний професійний догляд і косметика з Італії — індивідуальні програми краси для сяйва шкіри в будь-якому віці. Я дбайливо підбираю процедури та домашні засоби з урахуванням ваших цілей і ритму життя.</p>
+        <p class="mb-0">Консультація — безкоштовно при замовленні від 100&nbsp;€.</p>
       </div>
     </div>
   </section>
@@ -395,21 +421,27 @@
     </div>
   </section>
 
-  <!-- ПРО БРЕНД -->
+  <!-- СЕМІНАРИ / ПРО МЕНЕ (перенесено ДО НИЗУ) -->
   <section class="section">
     <div class="container two-col">
       <div class="card">
-        <img src="https://vivabeauty.ee/wp-content/uploads/2022/09/Prodotti_per_viso_1-1024x1024.jpg" alt="Професійні засоби Vilight Beauty" />
-      </div>
-      <div class="card">
+        <img src="https://vivabeauty.ee/wp-content/uploads/2022/09/DSC_5128.jpg" alt="Навчання та семінари" />
         <div class="card-body">
-          <h2 class="mb-0" style="color:#000;font-family:Philosopher,Georgia,serif;font-weight:400">Vilight Beauty</h2>
-          <h5 class="mt-8 mb-0" style="color:#000;font-weight:400">Преміальна косметика на основі фітоекстрактів та високооочищених ефірних олій</h5>
-          <p class="mt-12">Лінійка для професійних естетичних процедур створюється в Італії за сучасними стандартами з перевіреної, сертифікованої сировини. Випуск невеликими партіями — для максимальної свіжості.</p>
-          <p>Індивідуальні консультації допоможуть підібрати домашній догляд під ваш ритм життя — адже турбота про себе — справжній секрет краси.</p>
-          <div class="stack mt-18">
-            <a class="btn pill" href="https://t.me/cosmetologg_iryna" target="_blank" rel="noopener" data-allow="telegram">Отримати підбір</a>
-            <a class="btn btn-outline pill" href="tel:+380960120122" data-allow="tel">Подзвонити</a>
+          <h2 class="mb-0" style="color:#000;font-family:Philosopher,Georgia,serif;font-weight:400">Семінари / Тренінги</h2>
+          <p class="mt-12">Провожу навчальні семінари для косметологів, косметиків та спа-спеціалістів за різними напрямами й техніками. Підвищуйте кваліфікацію та працюйте впевнено.</p>
+          <a class="btn pill" href="https://t.me/cosmetologg_iryna" target="_blank" rel="noopener" data-allow="telegram">Записатися</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body stack">
+          <h2 class="mb-0" style="color:#000;font-family:Philosopher,Georgia,serif;font-weight:400">Ірина Колоколова</h2>
+          <h3 class="mt-8 mb-0" style="color:#000;font-weight:400">Засновниця Irina Kolokolova Cosmetology</h3>
+          <p class="mt-8">Навчаю орієнтуватися у світі косметології, ретельно підбирати продукти та виконувати процедури з урахуванням індивідуальних особливостей кожної людини.</p>
+          <p>25 років у професії — постійний рух, навчання та передача досвіду від новачків до профі. Тримаємо руку на пульсі косметології разом!</p>
+          <div class="stack">
+            <a class="btn pill" href="tel:+380960120122" data-allow="tel">Подзвонити</a>
+            <a class="btn btn-outline pill" href="https://www.instagram.com/irina.kolokolova_cosmetology/" target="_blank" rel="noopener" data-allow="instagram">В Instagram</a>
           </div>
         </div>
       </div>
@@ -420,19 +452,11 @@
   <footer class="footer">
     <div class="container">
       <div class="stack center">
-        <img src="https://i.ibb.co/9X7PvSy/2025-10-30-160911.png" alt="ViVaBeauty" style="height:56px;margin:0 auto;filter:brightness(0) invert(1)" />
+        <img src="https://i.ibb.co/9X7PvSy/2025-10-30-160911.png" alt="Irina Kolokolova Cosmetology" style="height:56px;margin:0 auto;filter:brightness(0) invert(1)" />
 
         <div class="socials">
-          <!-- Facebook (залишимо як приклад — закрито фільтром лінків, тож не перейде) -->
-          <a class="icon-btn" href="https://www.facebook.com/profile.php?id=100063104655138" target="_blank" rel="noopener" data-allow="block">
-            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2.3V12h2.3V9.8c0-2.3 1.3-3.6 3.4-3.6.98 0 2 .18 2 .18v2.2h-1.1c-1.1 0-1.5.68-1.5 1.4V12h2.6l-.42 2.9h-2.2v7A10 10 0 0 0 22 12z"/>
-            </svg>
-          </a>
-
-          <!-- Instagram (ВАШ ЗАПИТ) -->
+          <!-- Instagram -->
           <a class="icon-btn" href="https://www.instagram.com/irina.kolokolova_cosmetology/" target="_blank" rel="noopener" aria-label="Instagram" data-allow="instagram">
-            <!-- Мінімалістичний інстаграм-ікон -->
             <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2"/>
               <circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="2"/>
@@ -440,7 +464,7 @@
             </svg>
           </a>
 
-          <!-- Telegram дубль -->
+          <!-- Telegram (залишаємо як швидкий канал для замовлень) -->
           <a class="icon-btn" href="https://t.me/cosmetologg_iryna" target="_blank" rel="noopener" aria-label="Telegram" data-allow="telegram">
             <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -452,35 +476,28 @@
         <div class="center" style="margin-top:10px">
           <h5 style="margin:0 0 8px;color:#fff">Контакти</h5>
           <div class="stack" style="gap:6px">
-            <a href="mailto:info@vivabeauty.ee" data-allow="mailto">info@vivabeauty.ee</a>
+            <!-- E-mail та адресу видалено за вашим побажанням -->
             <a href="tel:+380960120122" data-allow="tel">(+380)&nbsp;96&nbsp;012&nbsp;01&nbsp;22</a>
-            <span class="muted">Aida 5, Pärnu, Eesti</span>
           </div>
         </div>
 
-        <p class="center muted" style="margin-top:18px">© 2025 ViVaBeauty. Усі права захищено.</p>
+        <p class="center muted" style="margin-top:18px">© 2025 Irina Kolokolova Cosmetology. Усі права захищено.</p>
       </div>
     </div>
   </footer>
 
   <!-- Блокувальник небажаних переходів.
-       Дозволяємо лише: tel:, mailto:, Telegram, Instagram.
+       Дозволяємо лише: tel:, Telegram (для замовлень), Instagram.
        Все інше — скасовуємо, щоб не було переходів на інші сторінки. -->
   <script>
     (function() {
-      const ALLOW_ATTR = new Set(["tel","mailto","telegram","instagram","mailto","tel"]);
       document.addEventListener('click', function(e) {
         const a = e.target.closest('a');
         if (!a) return;
-        const allowMark = a.getAttribute('data-allow') || "";
-        if (ALLOW_ATTR.has(allowMark)) return; // дозволено маркером
-
         const href = (a.getAttribute('href')||"").trim();
 
-        // Дозволяємо лише whitelisted протоколи/домени:
         const ok =
           href.startsWith('tel:') ||
-          href.startsWith('mailto:') ||
           href.startsWith('https://t.me/cosmetologg_iryna') ||
           href.startsWith('http://t.me/cosmetologg_iryna') ||
           href.startsWith('https://www.instagram.com/irina.kolokolova_cosmetology/') ||
@@ -493,7 +510,7 @@
         }
       }, { capture: true });
 
-      // На випадок натискання на логотип/якір — без перезавантаження:
+      // Логотип/якорі — без перезавантаження:
       document.querySelectorAll('a[href="#"]').forEach(a=>{
         a.addEventListener('click', (e)=>{ e.preventDefault(); }, { passive:false });
       });
