@@ -1,77 +1,66 @@
 <!DOCTYPE html>
-<html lang="uk-UA" class="js no-zoom">
+<html lang="uk-UA" class="no-zoom">
 <head>
   <meta charset="UTF-8" />
   <title>Irina Kolokolova Cosmetology — Професійний догляд</title>
-
-  <!-- Без масштабування, скрол тільки вниз -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   <meta name="theme-color" content="#88bbb5" />
-
   <style>
     :root{
-      --primary:#88bbb5;         /* оливковий */
-      --primary-700:#6aa39d;
-      --text:#000;
-      --muted:#5f5f5f;
-      --bg:#fff;
-      --radius:16px;
-      --shadow:0 10px 30px rgba(0,0,0,.07);
+      --primary:#88bbb5; --primary-700:#6aa39d;
+      --text:#000; --muted:#5f5f5f; --bg:#fff;
+      --radius:16px; --shadow:0 10px 30px rgba(0,0,0,.07);
     }
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--muted);font-family:"Source Sans Pro",system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,sans-serif;overflow-x:hidden;-webkit-text-size-adjust:100%;touch-action:pan-y}
     *{box-sizing:border-box}
-    img{max-width:100%;height:auto;display:block}
+    html,body{margin:0;background:var(--bg);color:var(--muted);
+      font-family:"Source Sans Pro",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      overflow-x:hidden;-webkit-text-size-adjust:100%;touch-action:pan-y}
     a{color:var(--primary);text-decoration:none}
     a:hover{color:var(--primary-700)}
+    img{display:block;max-width:100%;height:auto}
+
     .container{max-width:1250px;margin:0 auto;padding:0 16px}
 
-    /* ======= ШАПКА ======= */
-    .header{background:#fff;position:sticky;top:0;z-index:30;border-bottom:1px solid #eee;box-shadow:0 2px 10px rgba(0,0,0,.03)}
+    /* HEADER */
+    .header{position:sticky;top:0;z-index:40;background:#fff;border-bottom:1px solid #eee;box-shadow:0 2px 10px rgba(0,0,0,.03)}
     .header-top{padding:10px 0 6px}
     .logo-wrap{display:flex;justify-content:center}
     .logo-wrap img{height:56px;width:auto}
-
-    .header-actions{
-      display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:center;margin:8px 0 10px
-    }
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    .header-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:8px 0 10px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;
       height:38px;padding:0 12px;border-radius:999px;border:1px solid var(--primary);
       background:var(--primary);color:#fff;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
-      font-size:.74rem;box-shadow:var(--shadow);transition:transform .15s,background .2s,border-color .2s;
-      user-select:none;min-width:0;white-space:nowrap
-    }
+      font-size:.74rem;box-shadow:var(--shadow);transition:.15s}
     .btn:hover{transform:translateY(-1px);background:var(--primary-700);border-color:var(--primary-700)}
-    .btn:active{transform:none;opacity:1;color:#fff}
     .btn .icon{width:17px;height:17px}
     .btn-ghost{background:transparent;color:var(--primary)}
     .btn-ghost:hover{background:var(--primary);color:#fff}
-    @media (max-width:390px){
-      .btn{font-size:.7rem;height:36px;padding:0 10px;gap:7px}
-      .btn .icon{width:16px;height:16px}
-    }
+    @media (max-width:390px){.btn{font-size:.7rem;height:36px;padding:0 10px}.btn .icon{width:16px;height:16px}}
 
-    /* ======= HERO з фоном ======= */
-    .hero{
-      position:relative;
-      background:url('https://ibb.co/PSvrckn') center/cover no-repeat;
-      min-height:260px;
-      display:flex;align-items:flex-end
-    }
-    .hero::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.35)}
-    .hero-inner{position:relative;z-index:1;width:100%}
-    .hero-text{color:#fff;text-align:center;padding:20px 14px 18px;text-shadow:0 1px 2px rgba(0,0,0,.35)}
-    .hero-text h1{margin:0 0 8px;font-size:clamp(22px,5vw,30px);font-weight:800;letter-spacing:.01em}
+    /* HERO SLIDER */
+    .hero{position:relative}
+    .slide{position:relative;min-height:320px;display:flex;align-items:flex-end}
+    .slide::before{ /* BG image */ content:"";position:absolute;inset:0;background:#ccc center/cover no-repeat;transform:scale(1.02)}
+    .slide::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.28),rgba(0,0,0,.42))}
+    .slide-content{position:relative;z-index:1;width:100%}
+    .hero-text{color:#fff;text-align:center;padding:22px 14px 20px;text-shadow:0 1px 2px rgba(0,0,0,.35)}
+    .hero-text h1{margin:0 0 8px;font-size:clamp(22px,5vw,30px);font-weight:800}
     .hero-text p{margin:0 auto;max-width:820px;color:#f5f5f5}
 
-    /* ======= ТОВАРИ ======= */
+    .hero-nav{position:absolute;top:50%;left:0;right:0;display:flex;justify-content:space-between;transform:translateY(-50%);padding:0 6px;pointer-events:none}
+    .hero-btn{pointer-events:auto;width:40px;height:40px;border-radius:999px;border:1px solid #fff;background:rgba(255,255,255,.2);backdrop-filter:blur(2px);display:grid;place-items:center;color:#fff}
+    .hero-dots{position:absolute;left:0;right:0;bottom:8px;display:flex;gap:6px;justify-content:center}
+    .hero-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.5)}
+    .hero-dot.active{background:#fff}
+
+    /* PRODUCTS */
     .products{padding:16px 0 6px}
     .grid{display:grid;gap:18px;grid-template-columns:repeat(4,1fr)}
     @media (max-width:1100px){.grid{grid-template-columns:repeat(3,1fr)}}
     @media (max-width:720px){.grid{grid-template-columns:repeat(2,1fr)}}
     @media (max-width:420px){.grid{grid-template-columns:1fr}}
     .product{border:1px solid #eee;border-radius:18px;background:#fff;box-shadow:var(--shadow);display:flex;flex-direction:column;overflow:hidden}
-    .product .img-wrap{aspect-ratio:5/3.7;background:#f7f7f7}
+    .product .img-wrap{aspect-ratio:5/3.7;background:#f6f6f6}
     .product .img-wrap img{width:100%;height:100%;object-fit:cover}
     .product .info{padding:14px 14px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
     .product .title{margin:0;color:#000;font-size:1.02rem;line-height:1.25;text-align:center;min-height:2.6em}
@@ -80,25 +69,18 @@
     .order-cta .button{width:100%;background:var(--primary);border:1px solid var(--primary);color:#fff;border-radius:999px;height:42px;display:flex;align-items:center;justify-content:center;font-weight:700;letter-spacing:.04em}
     .order-cta .button:hover{background:var(--primary-700);border-color:var(--primary-700)}
 
-    /* ======= ГАЛЕРЕЯ (ваші 6 фото) ======= */
-    .gallery{padding:10px 0 8px}
-    .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-    @media (max-width:900px){.gallery-grid{grid-template-columns:repeat(2,1fr)}}
-    @media (max-width:520px){.gallery-grid{grid-template-columns:1fr}}
-    .g-item{border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
-    .g-item img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
-
-    /* ======= Банери нижні — вужчі ======= */
+    /* BANNERS (narrow) */
     .banner-wrap{padding:18px 0}
+    .banner-narrow{max-width:950px;margin:0 auto}
     .banner-row{display:grid;gap:14px;grid-template-columns:repeat(3,1fr)}
     @media (max-width:900px){.banner-row{grid-template-columns:1fr}}
-    .banner-narrow{max-width:950px;margin:0 auto;width:100%}
     .banner{position:relative;border-radius:var(--radius);overflow:hidden;min-height:132px;box-shadow:var(--shadow);display:flex;align-items:flex-end;color:#fff}
+    .banner::before{content:"";position:absolute;inset:0;background:#ddd center/cover no-repeat}
     .banner .overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.22),rgba(0,0,0,.4))}
     .banner .content{position:relative;z-index:1;padding:16px}
-    .banner h3{margin:0;color:#fff;font-size:clamp(18px,4vw,26px);font-weight:800;letter-spacing:.02em}
+    .banner h3{margin:0;color:#fff;font-size:clamp(18px,4vw,26px);font-weight:800}
 
-    /* ======= Футер (оливковий) ======= */
+    /* FOOTER */
     .footer{background:var(--primary);color:#000;padding:18px 0 14px}
     .footer-inner{display:flex;flex-direction:column;align-items:center;gap:10px}
     .footer .socials{display:flex;gap:10px}
@@ -108,32 +90,26 @@
     .footer a{color:#000}
     .footer p{margin:4px 0 0}
   </style>
-
-  <!-- Вимкнення pinch-zoom на iOS (додатково) -->
   <script>
-    document.addEventListener('touchmove', function(e){ if(e.scale!==1) e.preventDefault(); }, {passive:false});
+    // забираємо pinch-zoom
+    document.addEventListener('touchmove', e => { if (e.scale !== 1) e.preventDefault(); }, {passive:false});
   </script>
 </head>
 <body>
-
-  <!-- ======= ШАПКА ======= -->
+  <!-- HEADER -->
   <header class="header">
     <div class="container header-top">
-      <!-- ЛОГО -->
       <div class="logo-wrap">
         <img src="https://i.ibb.co/9X7PvSy/2025-10-30-160911.png" alt="Irina Kolokolova Cosmetology" loading="eager" decoding="async">
       </div>
-
-      <!-- КНОПКИ: ЗЛІВА телефон, СПРАВА Instagram (оливкові, короткі) -->
       <div class="header-actions">
-        <a class="btn" href="tel:+380960120122" data-allow="tel" aria-label="Подзвонити">
+        <a class="btn" href="tel:+380960120122" aria-label="Подзвонити">
           <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.12.9.3 1.78.54 2.63a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.45-1.06a2 2 0 0 1 2.11-.45c.85.24 1.73.42 2.63.54A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
           +380&nbsp;96&nbsp;012&nbsp;01&nbsp;22
         </a>
-
-        <a class="btn btn-ghost" href="https://www.instagram.com/irina.kolokolova_cosmetology/" target="_blank" rel="noopener" data-allow="instagram" aria-label="Instagram @irina.kolokolova_cosmetology">
+        <a class="btn btn-ghost" href="https://www.instagram.com/irina.kolokolova_cosmetology/" target="_blank" rel="noopener" aria-label="Instagram">
           <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2"/>
             <circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="2"/>
@@ -145,74 +121,61 @@
     </div>
   </header>
 
-  <!-- ======= HERO: фон + білий текст ======= -->
-  <section class="hero">
-    <div class="container hero-inner">
-      <div class="hero-text">
-        <h1>Преміальний професійний догляд і косметика з Італії</h1>
-        <p>Дбайливо підбираю процедури та домашні засоби для сяйва шкіри у будь-якому віці з урахуванням ваших цілей і ритму життя.</p>
-      </div>
+  <!-- HERO SLIDER (картинка за текстом) -->
+  <section class="hero" id="hero">
+    <!-- слайды JS вставить -->
+    <div class="hero-nav">
+      <button class="hero-btn" id="prev" aria-label="Попередній">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="hero-btn" id="next" aria-label="Наступний">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
     </div>
+    <div class="hero-dots" id="dots"></div>
   </section>
 
-  <!-- ======= ТОВАРИ ======= -->
+  <!-- PRODUCTS -->
   <section class="products">
     <div class="container">
-      <div id="products-grid" class="grid"><!-- JS заповнить --></div>
+      <div id="products-grid" class="grid"></div>
     </div>
   </section>
 
-  <!-- ======= ГАЛЕРЕЯ з ваших фото ======= -->
-  <section class="gallery">
-    <div class="container">
-      <div class="gallery-grid">
-        <figure class="g-item"><img src="https://ibb.co/PSvrckn" alt="gallery 1" loading="lazy" decoding="async"></figure>
-        <figure class="g-item"><img src="https://ibb.co/z9XCh30" alt="gallery 2" loading="lazy" decoding="async"></figure>
-        <figure class="g-item"><img src="https://ibb.co/Kp3vXNgz" alt="gallery 3" loading="lazy" decoding="async"></figure>
-        <figure class="g-item"><img src="https://ibb.co/cs9CYWh" alt="gallery 4" loading="lazy" decoding="async"></figure>
-        <figure class="g-item"><img src="https://ibb.co/Pq1Dj7Q" alt="gallery 5" loading="lazy" decoding="async"></figure>
-        <figure class="g-item"><img src="https://ibb.co/xSTv1yjV" alt="gallery 6" loading="lazy" decoding="async"></figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======= БАНЕРИ (звужені) ======= -->
+  <!-- BANNERS -->
   <section class="banner-wrap">
     <div class="banner-narrow">
       <div class="banner-row">
-        <div class="banner" style="background:url('https://vivabeauty.ee/wp-content/uploads/2022/08/h-2-banner-img-6-1.jpg') center/cover no-repeat;">
-          <div class="overlay"></div>
-          <div class="content"><h3>Знижки</h3></div>
+        <div class="banner" id="bn-discount">
+          <div class="overlay"></div><div class="content"><h3>Знижки</h3></div>
         </div>
-        <div class="banner" style="background:url('https://vivabeauty.ee/wp-content/uploads/2022/08/h-2-banner-img-5-1.jpg') center/cover no-repeat;">
-          <div class="overlay"></div>
-          <div class="content"><h3>Доставка</h3></div>
+        <div class="banner" id="bn-delivery">
+          <div class="overlay"></div><div class="content"><h3>Доставка</h3></div>
         </div>
-        <div class="banner" style="background:url('https://vivabeauty.ee/wp-content/uploads/2022/08/h-2-banner-img-4-1.jpg') center/cover no-repeat;">
-          <div class="overlay"></div>
-          <div class="content"><h3>Консультація</h3></div>
+        <div class="banner" id="bn-consult">
+          <div class="overlay"></div><div class="content"><h3>Консультація</h3></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ======= ФУТЕР ======= -->
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer-inner">
       <div class="socials">
-        <a class="icon-btn" href="tel:+380960120122" data-allow="tel" aria-label="Подзвонити">
+        <a class="icon-btn" href="tel:+380960120122" aria-label="Подзвонити">
           <svg class="icon" viewBox="0 0 24 24" fill="none">
             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.12.9.3 1.78.54 2.63a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.45-1.06a2 2 0 0 1 2.11-.45c.85.24 1.73.42 2.63.54A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </a>
-        <a class="icon-btn" href="https://www.instagram.com/irina.kolokolova_cosmetology/" target="_blank" rel="noopener" data-allow="instagram" aria-label="Instagram">
+        <a class="icon-btn" href="https://www.instagram.com/irina.kolokolova_cosmetology/" target="_blank" rel="noopener" aria-label="Instagram">
           <svg class="icon" viewBox="0 0 24 24" fill="none">
             <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2"/>
             <circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="2"/>
             <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/>
           </svg>
         </a>
-        <a class="icon-btn" href="https://t.me/cosmetologg_iryna" target="_blank" rel="noopener" data-allow="telegram" aria-label="Telegram">
+        <a class="icon-btn" href="https://t.me/cosmetologg_iryna" target="_blank" rel="noopener" aria-label="Telegram">
           <svg class="icon" viewBox="0 0 24 24" fill="none">
             <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
             <path d="M22 2l-7 20-4-9-9-4 20-7z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" fill="none"/>
@@ -223,22 +186,108 @@
     </div>
   </footer>
 
-  <!-- ======= JS ======= -->
   <script>
-    // Забороняємо переходи будь-куди, крім дозволених
-    document.addEventListener('click', function(e){
-      const a = e.target.closest('a'); if(!a) return;
-      const href = (a.getAttribute('href')||"").trim();
-      const ok =
-        href.startsWith('tel:') ||
-        href.startsWith('https://t.me/cosmetologg_iryna') ||
-        href.startsWith('http://t.me/cosmetologg_iryna') ||
+    // Дозволяємо переходи лише на телефон/інстаграм/телеграм
+    document.addEventListener('click', (e)=>{
+      const a=e.target.closest('a'); if(!a) return;
+      const href=(a.getAttribute('href')||'').trim();
+      const ok = href.startsWith('tel:') ||
         href.startsWith('https://www.instagram.com/irina.kolokolova_cosmetology/') ||
-        href === '#' || href === '';
-      if(!ok){ e.preventDefault(); e.stopPropagation(); return false; }
+        href.startsWith('https://t.me/cosmetologg_iryna') ||
+        href==='#' || href==='';
+      if(!ok){ e.preventDefault(); e.stopPropagation(); }
     }, {capture:true});
 
-    // Товари
+    /* ================= HERO SLIDES =================
+       ВСТАВТЕ СЮДИ ПРЯМІ ПОСИЛАННЯ НА ЗОБРАЖЕННЯ (i.ibb.co/...jpg):
+       - Замість ibb.co/PSvrckn тощо має бути формат:
+         https://i.ibb.co/<папка>/<ім'я-файлу>.jpg (або .png)
+    */
+    const slides = [
+      { img: 'PUT_DIRECT_IMAGE_URL_1_HERE', title: 'Преміальний професійний догляд і косметика з Італії',
+        text: 'Дбайливо підбираю процедури та домашні засоби для сяйва шкіри у будь-якому віці.' },
+      { img: 'PUT_DIRECT_IMAGE_URL_2_HERE', title: 'Індивідуальні програми краси',
+        text: 'Підлаштовую рекомендації під ваші цілі та ритм життя — комфортно й результативно.' },
+      { img: 'PUT_DIRECT_IMAGE_URL_3_HERE', title: 'Естетичні процедури та домашній догляд',
+        text: 'Поєднання кабінетних технік і щоденних ритуалів дарує стабільний тонус і сяйво.' },
+      { img: 'PUT_DIRECT_IMAGE_URL_4_HERE', title: 'Косметологічні набори для дому',
+        text: 'Готові рішення для різних типів шкіри — просто, економно та ефективно.' },
+      { img: 'PUT_DIRECT_IMAGE_URL_5_HERE', title: 'Ніжне очищення — основа краси',
+        text: 'М’які формули без агресії підтримують бар’єр шкіри та готують її до активів.' },
+      { img: 'PUT_DIRECT_IMAGE_URL_6_HERE', title: 'Сяйво щодня',
+        text: 'Збалансовані засоби з фітоекстрактами та ефірними оліями для щоденного догляду.' },
+    ];
+
+    const hero = document.getElementById('hero');
+    const dotsWrap = document.getElementById('dots');
+
+    function renderSlides(){
+      hero.querySelectorAll('.slide').forEach(n=>n.remove());
+      dotsWrap.innerHTML='';
+      slides.forEach((s, i)=>{
+        const el = document.createElement('div');
+        el.className='slide';
+        el.style.setProperty('--bg', `url('${s.img}')`);
+        el.style.background='transparent'; // we use ::before
+        el.style.setProperty('--i', i);
+        el.innerHTML = `
+          <div class="container slide-content">
+            <div class="hero-text">
+              <h1>${s.title}</h1>
+              <p>${s.text}</p>
+            </div>
+          </div>`;
+        // set bg on ::before via style
+        el.style.setProperty('--bg-url', s.img);
+        el.style.cssText += ` --bg-url:url('${s.img}'); `;
+        el.addEventListener('error', ()=>{ /* ignore */ });
+
+        hero.insertBefore(el, hero.firstChild);
+        const d = document.createElement('span'); d.className='hero-dot'; d.dataset.index=i; dotsWrap.appendChild(d);
+      });
+
+      // apply bg to pseudo via inline stylesheet
+      Array.from(hero.querySelectorAll('.slide')).forEach((sl, idx)=>{
+        const url = slides[idx].img || '';
+        sl.style.setProperty('--bg-url', `url('${url}')`);
+        // fallback if CSS var not used: set background on ::before using direct style
+        sl.style.setProperty('--bg-image', `url('${url}')`);
+        sl.style.setProperty('--bg', `url('${url}')`);
+        sl.style.setProperty('backgroundImage', `url('${url}')`);
+        // also patch ::before using a helper style tag per slide
+        const st = document.createElement('style');
+        st.textContent = `
+          #hero .slide:nth-of-type(${slides.length - idx})::before{ background-image:url('${url}'); }
+        `;
+        document.head.appendChild(st);
+      });
+    }
+    renderSlides();
+
+    let idx=0;
+    function activate(i){
+      idx = (i+slides.length)%slides.length;
+      const all = hero.querySelectorAll('.slide');
+      all.forEach((s,k)=> s.style.display = (k===idx)?'flex':'none');
+      dotsWrap.querySelectorAll('.hero-dot').forEach((d,k)=> d.classList.toggle('active', k===idx));
+    }
+    activate(0);
+
+    document.getElementById('prev').onclick=()=>activate(idx-1);
+    document.getElementById('next').onclick=()=>activate(idx+1);
+    // swipe
+    (function(){
+      let x0=null;
+      hero.addEventListener('touchstart',e=>{x0=e.touches[0].clientX},{passive:true});
+      hero.addEventListener('touchend',e=>{
+        if(x0==null) return;
+        let dx=e.changedTouches[0].clientX - x0;
+        if(Math.abs(dx)>40) { dx>0?activate(idx-1):activate(idx+1); }
+        x0=null;
+      });
+    })();
+
+    // PRODUCTS (з «замовити» в TG)
     const items = [
       {img:'https://vivabeauty.ee/wp-content/uploads/2022/09/cc11.jpg', title:'Очищувальне молочко з мікронізованим екстрактом вівса', price:'29,00 €'},
       {img:'https://vivabeauty.ee/wp-content/uploads/2022/09/cc12.jpg', title:'Тонік «Морква, Женьшень і Центела азійська»', price:'29,00 €'},
@@ -246,23 +295,34 @@
       {img:'https://vivabeauty.ee/wp-content/uploads/2022/09/cc14.jpg', title:'Зволожувальне очищувальне молочко', price:'29,00 €'},
       {img:'https://vivabeauty.ee/wp-content/uploads/2022/09/cc15.jpg', title:'Зволожувальний тонік', price:'29,00 €'},
       {img:'https://vivabeauty.ee/wp-content/uploads/2022/09/cc18.jpg', title:'Тонік для чутливої шкіри', price:'29,00 €'},
-      {img:'https://vivabeauty.ee/wp-content/uploads/2022/09/glp1.jpg', title:'GLICO PEEL — гліколевий пілінг 50% (проф.)', price:'—'},
-      {img:'https://vivabeauty.ee/wp-content/uploads/2022/09/DSC_5227.jpg', title:'Косметологічні подарункові набори', price:'—'}
+      {img:'https://vivabeauty.ee/wp-content/uploads/2022/09/glp1.jpg', title:'Кометологічні подарункові набори', price:'—'},
+      {img:'https://vivabeauty.ee/wp-content/uploads/2022/09/DSC_5227.jpg', title:'Кометологічні подарункові набори', price:'—'}
     ];
-
-    const grid = document.getElementById('products-grid');
-    grid.innerHTML = items.map(p => `
+    const grid=document.getElementById('products-grid');
+    grid.innerHTML = items.map(p=>`
       <article class="product">
         <div class="img-wrap"><img src="${p.img}" alt="${p.title}" loading="lazy" decoding="async"></div>
         <div class="info">
           <h3 class="title">${p.title}</h3>
           ${p.price && p.price!=='—' ? `<div class="price">${p.price}</div>` : ``}
           <div class="order-cta">
-            <a class="button" href="https://t.me/cosmetologg_iryna" target="_blank" rel="noopener" data-allow="telegram">Замовити</a>
+            <a class="button" href="https://t.me/cosmetologg_iryna" target="_blank" rel="noopener">Замовити</a>
           </div>
         </div>
-      </article>
-    `).join('');
+      </article>`).join('');
+
+    // BANNERS: підставляємо ваші зображення (потрібні прямі i.ibb.co лінки)
+    document.querySelector('#bn-discount').style.setProperty('--bg', 'url(PUT_DIRECT_IMAGE_URL_1_HERE)');
+    document.querySelector('#bn-discount').style.background='transparent';
+    document.querySelector('#bn-discount').style.cssText += `background:transparent;`;
+    document.querySelector('#bn-discount').style.setProperty('backgroundImage','none');
+    document.head.insertAdjacentHTML('beforeend', `<style>#bn-discount::before{background-image:url('PUT_DIRECT_IMAGE_URL_1_HERE')}</style>`);
+
+    document.querySelector('#bn-delivery').style.setProperty('--bg','url(PUT_DIRECT_IMAGE_URL_2_HERE)');
+    document.head.insertAdjacentHTML('beforeend', `<style>#bn-delivery::before{background-image:url('PUT_DIRECT_IMAGE_URL_2_HERE')}</style>`);
+
+    document.querySelector('#bn-consult').style.setProperty('--bg','url(PUT_DIRECT_IMAGE_URL_3_HERE)');
+    document.head.insertAdjacentHTML('beforeend', `<style>#bn-consult::before{background-image:url('PUT_DIRECT_IMAGE_URL_3_HERE')}</style>`);
   </script>
 </body>
 </html>
