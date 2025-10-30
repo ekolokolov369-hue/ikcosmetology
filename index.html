@@ -6,8 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   <meta name="theme-color" content="#88bbb5" />
   <meta name="description" content="Преміальний професійний догляд і косметика з Італії. Індивідуальні програми, естетичні процедури та домашні ритуали краси." />
+  <!-- КЛЮЧЕВОЕ: гасим реферер, чтобы i.ibb.co не блокировал -->
+  <meta name="referrer" content="no-referrer">
 
-  <!-- Open Graph (превью при шарингу) -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Irina Kolokolova Cosmetology — Професійний догляд">
   <meta property="og:description" content="Преміальний професійний догляд і косметика з Італії. Індивідуальні програми, естетичні процедури та домашні ритуали краси.">
@@ -15,8 +17,7 @@
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <!-- при необходимости замени на реальный URL твоего сайта -->
-  <meta property="og:url" content="https://your-domain.example/">
+  <meta property="og:url" content="https://ekolokolov369-hue.github.io/"> <!-- замени на точный URL, если другой -->
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -26,6 +27,10 @@
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="https://i.ibb.co/nssBGshp/60.png"/>
+
+  <!-- Preload самых важных изображений -->
+  <link rel="preload" as="image" href="https://i.ibb.co/v4FtNPkf/54.png">
+  <link rel="preload" as="image" href="https://i.ibb.co/nssBGshp/60.png">
 
   <style>
     :root{
@@ -62,11 +67,10 @@
     /* HERO SLIDER */
     .hero{position:relative}
     .slide{position:relative;min-height:320px;display:flex;align-items:flex-end}
-    /* ключевая правка: используем переменную --bg-url */
+    /* ключ: фон из переменной, без лишнего масштабирования (чтобы не мылить) */
     .slide::before{
       content:"";position:absolute;inset:0;
       background:var(--bg-url, #ccc) center/cover no-repeat;
-      transform:scale(1.02)
     }
     .slide::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.28),rgba(0,0,0,.42))}
     .slide-content{position:relative;z-index:1;width:100%}
@@ -102,7 +106,6 @@
     .banner-row{display:grid;gap:14px;grid-template-columns:repeat(3,1fr)}
     @media (max-width:900px){.banner-row{grid-template-columns:1fr}}
     .banner{position:relative;border-radius:var(--radius);overflow:hidden;min-height:132px;box-shadow:var(--shadow);display:flex;align-items:flex-end;color:#fff}
-    /* ключевая правка: фон через переменную */
     .banner::before{content:"";position:absolute;inset:0;background:var(--bg-url, #ddd) center/cover no-repeat}
     .banner .overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.22),rgba(0,0,0,.4))}
     .banner .content{position:relative;z-index:1;padding:16px}
@@ -120,7 +123,7 @@
   </style>
 
   <script>
-    // забираємо pinch-zoom
+    // Забираємо pinch-zoom
     document.addEventListener('touchmove', e => { if (e.scale !== 1) e.preventDefault(); }, {passive:false});
   </script>
 </head>
@@ -129,7 +132,7 @@
   <header class="header">
     <div class="container header-top">
       <div class="logo-wrap">
-        <img src="https://i.ibb.co/9X7PvSy/2025-10-30-160911.png" alt="Irina Kolokolova Cosmetology" loading="eager" decoding="async">
+        <img src="https://i.ibb.co/9X7PvSy/2025-10-30-160911.png" alt="Irina Kolokolova Cosmetology" loading="eager" decoding="async" fetchpriority="high">
       </div>
       <div class="header-actions">
         <a class="btn" href="tel:+380960120122" aria-label="Подзвонити">
@@ -215,7 +218,7 @@
   </footer>
 
   <script>
-    // Дозволяємо переходи лише на телефон/інстаграм/телеграм
+    // Разрешаем переходы только на телефон/инстаграм/телеграм
     document.addEventListener('click', (e)=>{
       const a=e.target.closest('a'); if(!a) return;
       const href=(a.getAttribute('href')||'').trim();
@@ -252,9 +255,13 @@
       slides.forEach((s, i)=>{
         const el = document.createElement('div');
         el.className='slide';
-        // достаточно выставить переменную — CSS возьмет фон из нее
         el.style.setProperty('--bg-url', `url('${s.img}')`);
-
+        // первый слайд грузим с высоким приоритетом
+        if(i===0){
+          const preload = new Image();
+          preload.fetchPriority = 'high';
+          preload.src = s.img;
+        }
         el.innerHTML = `
           <div class="container slide-content">
             <div class="hero-text">
@@ -262,7 +269,6 @@
               <p>${s.text}</p>
             </div>
           </div>`;
-
         hero.insertBefore(el, hero.firstChild);
 
         const d = document.createElement('span');
@@ -298,7 +304,7 @@
       });
     })();
 
-    // PRODUCTS (з «замовити» в TG)
+    // PRODUCTS
     const items = [
       {img:'https://vivabeauty.ee/wp-content/uploads/2022/09/cc11.jpg', title:'Очищувальне молочко з мікронізованим екстрактом вівса', price:'29,00 €'},
       {img:'https://vivabeauty.ee/wp-content/uploads/2022/09/cc12.jpg', title:'Тонік «Морква, Женьшень і Центела азійська»', price:'29,00 €'},
@@ -312,7 +318,7 @@
     const grid=document.getElementById('products-grid');
     grid.innerHTML = items.map(p=>`
       <article class="product">
-        <div class="img-wrap"><img src="${p.img}" alt="${p.title}" loading="lazy" decoding="async"></div>
+        <div class="img-wrap"><img src="${p.img}" alt="${p.title}" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>
         <div class="info">
           <h3 class="title">${p.title}</h3>
           ${p.price && p.price!=='—' ? `<div class="price">${p.price}</div>` : ``}
@@ -322,7 +328,7 @@
         </div>
       </article>`).join('');
 
-    // BANNERS: задаем фон через переменную (как у слайдов)
+    // BANNERS: фон через переменную (как у слайдов)
     document.getElementById('bn-discount').style.setProperty('--bg-url', "url('https://i.ibb.co/v4FtNPkf/54.png')");
     document.getElementById('bn-delivery').style.setProperty('--bg-url', "url('https://i.ibb.co/PzPk1zWD/55.png')");
     document.getElementById('bn-consult').style.setProperty('--bg-url', "url('https://i.ibb.co/xKQ9Vxsr/56.png')");
