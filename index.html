@@ -6,31 +6,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   <meta name="theme-color" content="#88bbb5" />
   <meta name="description" content="Преміальний професійний догляд і косметика з Італії. Індивідуальні програми, естетичні процедури та домашні ритуали краси." />
-  <!-- КЛЮЧЕВОЕ: гасим реферер, чтобы i.ibb.co не блокировал -->
+  <!-- убираем реферер на всякий случай -->
   <meta name="referrer" content="no-referrer">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Irina Kolokolova Cosmetology — Професійний догляд">
   <meta property="og:description" content="Преміальний професійний догляд і косметика з Італії. Індивідуальні програми, естетичні процедури та домашні ритуали краси.">
-  <meta property="og:image" content="https://i.ibb.co/nssBGshp/60.png">
+  <meta property="og:image" content="https://images.weserv.nl/?url=i.ibb.co/nssBGshp/60.png">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:url" content="https://ekolokolov369-hue.github.io/"> <!-- замени на точный URL, если другой -->
+  <meta property="og:url" content="https://ekolokolov369-hue.github.io/ikcosmetology/">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Irina Kolokolova Cosmetology — Професійний догляд">
   <meta name="twitter:description" content="Преміальний професійний догляд і косметика з Італії. Індивідуальні програми, естетичні процедури та домашні ритуали краси.">
-  <meta name="twitter:image" content="https://i.ibb.co/nssBGshp/60.png">
+  <meta name="twitter:image" content="https://images.weserv.nl/?url=i.ibb.co/nssBGshp/60.png">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="https://i.ibb.co/nssBGshp/60.png"/>
+  <link rel="icon" type="image/png" href="https://images.weserv.nl/?url=i.ibb.co/nssBGshp/60.png"/>
 
-  <!-- Preload самых важных изображений -->
-  <link rel="preload" as="image" href="https://i.ibb.co/v4FtNPkf/54.png">
-  <link rel="preload" as="image" href="https://i.ibb.co/nssBGshp/60.png">
+  <!-- Preload важных изображений (через прокси) -->
+  <link rel="preload" as="image" href="https://images.weserv.nl/?url=i.ibb.co/v4FtNPkf/54.png" fetchpriority="high">
+  <link rel="preload" as="image" href="https://images.weserv.nl/?url=i.ibb.co/nssBGshp/60.png">
 
   <style>
     :root{
@@ -67,7 +67,7 @@
     /* HERO SLIDER */
     .hero{position:relative}
     .slide{position:relative;min-height:320px;display:flex;align-items:flex-end}
-    /* ключ: фон из переменной, без лишнего масштабирования (чтобы не мылить) */
+    /* фон берём из переменной без масштабирования (чтобы не мылить) */
     .slide::before{
       content:"";position:absolute;inset:0;
       background:var(--bg-url, #ccc) center/cover no-repeat;
@@ -123,7 +123,7 @@
   </style>
 
   <script>
-    // Забираємо pinch-zoom
+    // забираємо pinch-zoom
     document.addEventListener('touchmove', e => { if (e.scale !== 1) e.preventDefault(); }, {passive:false});
   </script>
 </head>
@@ -132,7 +132,7 @@
   <header class="header">
     <div class="container header-top">
       <div class="logo-wrap">
-        <img src="https://i.ibb.co/9X7PvSy/2025-10-30-160911.png" alt="Irina Kolokolova Cosmetology" loading="eager" decoding="async" fetchpriority="high">
+        <img src="https://images.weserv.nl/?url=i.ibb.co/9X7PvSy/2025-10-30-160911.png" alt="Irina Kolokolova Cosmetology" loading="eager" decoding="async" fetchpriority="high">
       </div>
       <div class="header-actions">
         <a class="btn" href="tel:+380960120122" aria-label="Подзвонити">
@@ -196,7 +196,7 @@
       <div class="socials">
         <a class="icon-btn" href="tel:+380960120122" aria-label="Подзвонити">
           <svg class="icon" viewBox="0 0 24 24" fill="none">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.12.9.3 1.78.54 2.63a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.45-1.06a2 2 0 0 1 2.11-.45c.85.24 1.73.42 2.63.54A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.12.9.3 1.78.54 2.63a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.45-1.06a2 2 0 0 1 2.11-.45c.85.24 1.73.42 2.63.54A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
           </svg>
         </a>
         <a class="icon-btn" href="https://www.instagram.com/irina.kolokolova_cosmetology/" target="_blank" rel="noopener" aria-label="Instagram">
@@ -229,19 +229,22 @@
       if(!ok){ e.preventDefault(); e.stopPropagation(); }
     }, {capture:true});
 
+    // helper для CDN-прокси (если вдруг захочешь подставлять динамически)
+    const cdn = u => `https://images.weserv.nl/?url=${encodeURIComponent(u.replace(/^https?:\/\//,''))}`;
+
     /* ================= HERO SLIDES ================= */
     const slides = [
-      { img: 'https://i.ibb.co/v4FtNPkf/54.png', title: 'Преміальний професійний догляд і косметика з Італії',
+      { img: cdn('https://i.ibb.co/v4FtNPkf/54.png'), title: 'Преміальний професійний догляд і косметика з Італії',
         text: 'Дбайливо підбираю процедури та домашні засоби для сяйва шкіри у будь-якому віці.' },
-      { img: 'https://i.ibb.co/PzPk1zWD/55.png', title: 'Індивідуальні програми краси',
+      { img: cdn('https://i.ibb.co/PzPk1zWD/55.png'), title: 'Індивідуальні програми краси',
         text: 'Підлаштовую рекомендації під ваші цілі та ритм життя — комфортно й результативно.' },
-      { img: 'https://i.ibb.co/xKQ9Vxsr/56.png', title: 'Естетичні процедури та домашній догляд',
+      { img: cdn('https://i.ibb.co/xKQ9Vxsr/56.png'), title: 'Естетичні процедури та домашній догляд',
         text: 'Поєднання кабінетних технік і щоденних ритуалів дарує стабільний тонус і сяйво.' },
-      { img: 'https://i.ibb.co/Hp1sXZMJ/57.png', title: 'Косметологічні набори для дому',
+      { img: cdn('https://i.ibb.co/Hp1sXZMJ/57.png'), title: 'Косметологічні набори для дому',
         text: 'Готові рішення для різних типів шкіри — просто, економно та ефективно.' },
-      { img: 'https://i.ibb.co/BKdd0GM9/58.png', title: 'Ніжне очищення — основа краси',
+      { img: cdn('https://i.ibb.co/BKdd0GM9/58.png'), title: 'Ніжне очищення — основа краси',
         text: 'М’які формули без агресії підтримують бар’єр шкіри та готують її до активів.' },
-      { img: 'https://i.ibb.co/jZMhqBkV/59.png', title: 'Сяйво щодня',
+      { img: cdn('https://i.ibb.co/jZMhqBkV/59.png'), title: 'Сяйво щодня',
         text: 'Збалансовані засоби з фітоекстрактами та ефірними оліями для щоденного догляду.' },
     ];
 
@@ -256,12 +259,7 @@
         const el = document.createElement('div');
         el.className='slide';
         el.style.setProperty('--bg-url', `url('${s.img}')`);
-        // первый слайд грузим с высоким приоритетом
-        if(i===0){
-          const preload = new Image();
-          preload.fetchPriority = 'high';
-          preload.src = s.img;
-        }
+        if(i===0){ const preload = new Image(); preload.fetchPriority='high'; preload.src = s.img; }
         el.innerHTML = `
           <div class="container slide-content">
             <div class="hero-text">
@@ -328,10 +326,10 @@
         </div>
       </article>`).join('');
 
-    // BANNERS: фон через переменную (как у слайдов)
-    document.getElementById('bn-discount').style.setProperty('--bg-url', "url('https://i.ibb.co/v4FtNPkf/54.png')");
-    document.getElementById('bn-delivery').style.setProperty('--bg-url', "url('https://i.ibb.co/PzPk1zWD/55.png')");
-    document.getElementById('bn-consult').style.setProperty('--bg-url', "url('https://i.ibb.co/xKQ9Vxsr/56.png')");
+    // BANNERS: фоны через прокси
+    document.getElementById('bn-discount').style.setProperty('--bg-url', "url('https://images.weserv.nl/?url=i.ibb.co/v4FtNPkf/54.png')");
+    document.getElementById('bn-delivery').style.setProperty('--bg-url', "url('https://images.weserv.nl/?url=i.ibb.co/PzPk1zWD/55.png')");
+    document.getElementById('bn-consult').style.setProperty('--bg-url', "url('https://images.weserv.nl/?url=i.ibb.co/xKQ9Vxsr/56.png')");
   </script>
 </body>
 </html>
