@@ -12,16 +12,16 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Irina Kolokolova Cosmetology — Професійний догляд">
   <meta property="og:description" content="Преміальний професійний догляд і косметика з Італії. Індивідуальні програми, естетичні процедури та домашні ритуали краси.">
-  <meta property="og:image" content="https://i.ibb.co/nssBGshp/60.png">
+  <meta property="og:image" content="https://images.weserv.nl/?url=i.ibb.co/nssBGshp/60.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:url" content="https://ekolokolov369-hue.github.io/ikcosmetology/">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Irina Kolokolova Cosmetology — Професійний догляд">
   <meta name="twitter:description" content="Преміальний професійний догляд і косметика з Італії. Індивідуальні програми, естетичні процедури та домашні ритуали краси.">
-  <meta name="twitter:image" content="https://i.ibb.co/nssBGshp/60.png">
+  <meta name="twitter:image" content="https://images.weserv.nl/?url=i.ibb.co/nssBGshp/60.png">
 
-  <link rel="icon" type="image/png" href="https://i.ibb.co/nssBGshp/60.png"/>
+  <link rel="icon" type="image/png" href="https://images.weserv.nl/?url=i.ibb.co/nssBGshp/60.png"/>
 
   <style>
     :root{
@@ -112,26 +112,27 @@
   </style>
 
   <script>
-    // ЖЁСТКИЙ надёжный лоадер картинок:
-    // 1) пробуем ОРИГИНАЛ (i.ibb.co)
-    // 2) если ошибка — переключаемся на wsrv.nl (прокси)
-    // 3) если опять ошибка — переключаемся на cdn.statically.io
-    // 4) если всё упало — ставим маленький png-заглушку
+    // ПРОЧНЫЙ ЛОАДЕР: начинаем с weserv (обходит хотлинк-403), потом statically, потом оригинал
     const FALLBACK = 'data:image/gif;base64,R0lGODlhAQABAAAAACw=';
 
-    function robustImg(url, eager=false, alt='') {
-      const urlNoProto = url.replace(/^https?:\/\//,'');
-      const proxy1 = `https://wsrv.nl/?url=${encodeURIComponent(urlNoProto)}&w=1920&dpr=1.5&q=85&we`;
-      const proxy2 = `https://cdn.statically.io/img/${urlNoProto}`;
+    function viaWeserv(rawUrl){
+      // high quality + webp где возможно
+      const u = rawUrl.replace(/^https?:\/\//,'');
+      return `https://images.weserv.nl/?url=${encodeURIComponent(u)}&w=1920&dpr=1.5&q=85&we`;
+    }
+    function viaStatically(rawUrl){
+      return `https://cdn.statically.io/img/${rawUrl.replace(/^https?:\/\//,'')}`;
+    }
 
-      // onerror-цепочка
+    function robustImg(url, eager=false, alt=''){
+      const w = viaWeserv(url);
+      const s = viaStatically(url);
       const onerr = `
-        if(!this.dataset.step){ this.dataset.step='1'; this.src='${proxy1}'; }
-        else if(this.dataset.step==='1'){ this.dataset.step='2'; this.src='${proxy2}'; }
+        if(!this.dataset.step){ this.dataset.step='1'; this.src='${s}'; }
+        else if(this.dataset.step==='1'){ this.dataset.step='2'; this.src='${url}'; }
         else { this.onerror=null; this.src='${FALLBACK}'; }
       `;
-
-      return `<img src="${url}"
+      return `<img src="${w}"
                    alt="${alt.replace(/"/g,'&quot;')}"
                    ${eager ? 'loading="eager" fetchpriority="high"' : 'loading="lazy"'}
                    decoding="async"
@@ -148,8 +149,8 @@
   <header class="header">
     <div class="container header-top">
       <div class="logo-wrap">
-        <img src="https://i.ibb.co/9X7PvSy/2025-10-30-160911.png" alt="Irina Kolokolova Cosmetology" loading="eager" decoding="async" fetchpriority="high"
-             onerror="this.onerror=null; this.src='https://wsrv.nl/?url=i.ibb.co/9X7PvSy/2025-10-30-160911.png'">
+        <img src="https://images.weserv.nl/?url=i.ibb.co/9X7PvSy/2025-10-30-160911.png" alt="Irina Kolokolova Cosmetology" loading="eager" decoding="async" fetchpriority="high"
+             onerror="if(!this.dataset.step){this.dataset.step='1';this.src='https://cdn.statically.io/img/i.ibb.co/9X7PvSy/2025-10-30-160911.png'}else{this.onerror=null;this.src='https://i.ibb.co/9X7PvSy/2025-10-30-160911.png'}">
       </div>
       <div class="header-actions">
         <a class="btn" href="tel:+380960120122" aria-label="Подзвонити">
@@ -252,7 +253,7 @@
       if(!ok){ e.preventDefault(); e.stopPropagation(); }
     }, {capture:true});
 
-    /* ===== HERO SLIDES — твои 6 URL ===== */
+    /* ===== HERO SLIDES — ровно эти 6 URL ===== */
     const slides = [
       { img: 'https://i.ibb.co/v4FtNPkf/54.png', title: 'Преміальний професійний догляд і косметика з Італії',
         text: 'Дбайливо підбираю процедури та домашні засоби для сяйва шкіри у будь-якому віці.' },
@@ -349,7 +350,7 @@
         </div>
       </article>`).join('');
 
-    /* ===== BANNЕРЫ ===== */
+    /* ===== BANNERS ===== */
     function setBanner(id, url){
       const wrap = document.getElementById(id).querySelector('.banner-media');
       wrap.innerHTML = robustImg(url, false, '');
