@@ -5,14 +5,38 @@
   <title>Irina Kolokolova Cosmetology — Професійний догляд</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   <meta name="theme-color" content="#88bbb5" />
-  <meta name="description" content="Професійний догляд і косметика. Індивідуальні програми, естетичні процедури та домашні ритуали краси." />
+  <meta name="description" content="Преміальний професійний догляд і косметика з Італії. Індивідуальні програми, естетичні процедури та домашні ритуали краси." />
   <meta name="referrer" content="no-referrer">
+
+  <!-- OG/Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Irina Kolokolova Cosmetology — Професійний догляд">
+  <meta property="og:description" content="Преміальний професійний догляд і косметика з Італії. Індивідуальні програми, естетичні процедури та домашні ритуали краси.">
+  <meta property="og:image" content="https://images.weserv.nl/?url=i.ibb.co/nssBGshp/60.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://ekolokolov369-hue.github.io/ikcosmetology/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Irina Kolokolova Cosmetology — Професійний догляд">
+  <meta name="twitter:description" content="Преміальний професійний догляд і косметика з Італії. Індивідуальні програми, естетичні процедури та домашні ритуали краси.">
+  <meta name="twitter:image" content="https://images.weserv.nl/?url=i.ibb.co/nssBGshp/60.png">
+
+  <link rel="icon" type="image/png" href="https://images.weserv.nl/?url=i.ibb.co/nssBGshp/60.png"/>
+
   <style>
-    :root{--primary:#88bbb5;--primary-700:#6aa39d;--text:#000;--muted:#5f5f5f;--bg:#fff;--radius:16px;--shadow:0 10px 30px rgba(0,0,0,.07)}
-    *{box-sizing:border-box} html,body{margin:0;background:var(--bg);color:var(--muted);
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;overflow-x:hidden;-webkit-text-size-adjust:100%;touch-action:pan-y}
-    a{color:var(--primary);text-decoration:none} a:hover{color:var(--primary-700)}
+    :root{
+      --primary:#88bbb5; --primary-700:#6aa39d;
+      --text:#000; --muted:#5f5f5f; --bg:#fff;
+      --radius:16px; --shadow:0 10px 30px rgba(0,0,0,.07);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--muted);
+      font-family:"Source Sans Pro",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      overflow-x:hidden;-webkit-text-size-adjust:100%;touch-action:pan-y}
+    a{color:var(--primary);text-decoration:none}
+    a:hover{color:var(--primary-700)}
     img{display:block;max-width:100%;height:auto}
+
     .container{max-width:1250px;margin:0 auto;padding:0 16px}
 
     /* HEADER */
@@ -21,17 +45,21 @@
     .logo-wrap{display:flex;justify-content:center}
     .logo-wrap img{height:56px;width:auto}
     .header-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:8px 0 10px}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:38px;padding:0 12px;border-radius:999px;
-      border:1px solid var(--primary);background:var(--primary);color:#fff;font-weight:700;letter-spacing:.04em;text-transform:uppercase;font-size:.74rem;box-shadow:var(--shadow);transition:.15s}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      height:38px;padding:0 12px;border-radius:999px;border:1px solid var(--primary);
+      background:var(--primary);color:#fff;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+      font-size:.74rem;box-shadow:var(--shadow);transition:.15s}
     .btn:hover{transform:translateY(-1px);background:var(--primary-700);border-color:var(--primary-700)}
-    .btn .icon{width:17px;height:17px} .btn-ghost{background:transparent;color:var(--primary)} .btn-ghost:hover{background:var(--primary);color:#fff}
+    .btn .icon{width:17px;height:17px}
+    .btn-ghost{background:transparent;color:var(--primary)}
+    .btn-ghost:hover{background:var(--primary);color:#fff}
     @media (max-width:390px){.btn{font-size:.7rem;height:36px;padding:0 10px}.btn .icon{width:16px;height:16px}}
 
-    /* HERO — <img> + локальные пути */
+    /* HERO (IMG) */
     .hero{position:relative}
-    .slide{position:relative;min-height:320px;display:flex;align-items:flex-end;overflow:hidden;background:#e9ecef}
+    .slide{position:relative;min-height:320px;display:flex;align-items:flex-end;overflow:hidden}
     .slide-media{position:absolute;inset:0;z-index:0}
-    .slide-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    .slide-media picture, .slide-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
     .slide::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.28),rgba(0,0,0,.42));z-index:0}
     .slide-content{position:relative;z-index:1;width:100%}
     .hero-text{color:#fff;text-align:center;padding:22px 14px 20px;text-shadow:0 1px 2px rgba(0,0,0,.35)}
@@ -41,12 +69,15 @@
     .hero-nav{position:absolute;top:50%;left:0;right:0;display:flex;justify-content:space-between;transform:translateY(-50%);padding:0 6px;pointer-events:none}
     .hero-btn{pointer-events:auto;width:40px;height:40px;border-radius:999px;border:1px solid #fff;background:rgba(255,255,255,.2);backdrop-filter:blur(2px);display:grid;place-items:center;color:#fff}
     .hero-dots{position:absolute;left:0;right:0;bottom:8px;display:flex;gap:6px;justify-content:center}
-    .hero-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.5)} .hero-dot.active{background:#fff}
+    .hero-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.5)}
+    .hero-dot.active{background:#fff}
 
     /* PRODUCTS */
     .products{padding:16px 0 6px}
     .grid{display:grid;gap:18px;grid-template-columns:repeat(4,1fr)}
-    @media (max-width:1100px){.grid{grid-template-columns:repeat(3,1fr)}} @media (max-width:720px){.grid{grid-template-columns:repeat(2,1fr)}} @media (max-width:420px){.grid{grid-template-columns:1fr}}
+    @media (max-width:1100px){.grid{grid-template-columns:repeat(3,1fr)}}
+    @media (max-width:720px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:420px){.grid{grid-template-columns:1fr}}
     .product{border:1px solid #eee;border-radius:18px;background:#fff;box-shadow:var(--shadow);display:flex;flex-direction:column;overflow:hidden}
     .product .img-wrap{aspect-ratio:5/3.7;background:#f6f6f6}
     .product .img-wrap img{width:100%;height:100%;object-fit:cover}
@@ -57,13 +88,14 @@
     .order-cta .button{width:100%;background:var(--primary);border:1px solid var(--primary);color:#fff;border-radius:999px;height:42px;display:flex;align-items:center;justify-content:center;font-weight:700;letter-spacing:.04em}
     .order-cta .button:hover{background:var(--primary-700);border-color:var(--primary-700)}
 
-    /* BANNERS */
+    /* BANNERS (IMG) */
     .banner-wrap{padding:18px 0}
     .banner-narrow{max-width:950px;margin:0 auto}
-    .banner-row{display:grid;gap:14px;grid-template-columns:repeat(3,1fr)} @media (max-width:900px){.banner-row{grid-template-columns:1fr}}
-    .banner{position:relative;border-radius:var(--radius);overflow:hidden;min-height:132px;box-shadow:var(--shadow);display:flex;align-items:flex-end;color:#fff;background:#e9ecef}
+    .banner-row{display:grid;gap:14px;grid-template-columns:repeat(3,1fr)}
+    @media (max-width:900px){.banner-row{grid-template-columns:1fr}}
+    .banner{position:relative;border-radius:var(--radius);overflow:hidden;min-height:132px;box-shadow:var(--shadow);display:flex;align-items:flex-end;color:#fff}
     .banner-media{position:absolute;inset:0;z-index:0}
-    .banner-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    .banner-media picture, .banner-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
     .banner .overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.22),rgba(0,0,0,.4));z-index:0}
     .banner .content{position:relative;z-index:1;padding:16px}
     .banner h3{margin:0;color:#fff;font-size:clamp(18px,4vw,26px);font-weight:800}
@@ -73,16 +105,37 @@
     .footer-inner{display:flex;flex-direction:column;align-items:center;gap:10px}
     .footer .socials{display:flex;gap:10px}
     .icon-btn{width:44px;height:44px;border-radius:999px;background:#fff;border:1px solid #fff;color:var(--text);display:grid;place-items:center;transition:.2s}
-    .icon-btn:hover{transform:translateY(-1px)} .icon{width:20px;height:20px} .footer a{color:#000} .footer p{margin:4px 0 0}
+    .icon-btn:hover{transform:translateY(-1px)}
+    .icon{width:20px;height:20px}
+    .footer a{color:#000}
+    .footer p{margin:4px 0 0}
   </style>
+
+  <script>
+    // CDN-проксі + складання <picture> (проксі як основний, прямий як запасний)
+    const cdn = (u) => `https://images.weserv.nl/?url=${encodeURIComponent(u.replace(/^https?:\/\//,''))}`;
+    const FALLBACK = 'https://images.weserv.nl/?url=i.ibb.co/nssBGshp/60.png';
+
+    function pictureHTML(url) {
+      const proxied = cdn(url);
+      return `
+        <picture>
+          <source srcset="${proxied}">
+          <img src="${url}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"
+               onerror="this.onerror=null; this.src='${FALLBACK}'">
+        </picture>`;
+    }
+
+    // заборона pinch-zoom
+    document.addEventListener('touchmove', e => { if (e.scale !== 1) e.preventDefault(); }, {passive:false});
+  </script>
 </head>
 <body>
   <!-- HEADER -->
   <header class="header">
     <div class="container header-top">
       <div class="logo-wrap">
-        <!-- логотип можно тоже переложить в /img при желании -->
-        <img src="/img/60.png" alt="Irina Kolokolova Cosmetology" loading="eager" decoding="async" fetchpriority="high">
+        <img src="https://images.weserv.nl/?url=i.ibb.co/9X7PvSy/2025-10-30-160911.png" alt="Irina Kolokolova Cosmetology" loading="eager" decoding="async" fetchpriority="high">
       </div>
       <div class="header-actions">
         <a class="btn" href="tel:+380960120122" aria-label="Подзвонити">
@@ -103,7 +156,7 @@
     </div>
   </header>
 
-  <!-- HERO (локальные файлы /img/54.png … 59.png) -->
+  <!-- HERO -->
   <section class="hero" id="hero">
     <div class="hero-nav">
       <button class="hero-btn" id="prev" aria-label="Попередній">
@@ -128,13 +181,19 @@
     <div class="banner-narrow">
       <div class="banner-row">
         <div class="banner" id="bn-discount">
-          <div class="banner-media"></div><div class="overlay"></div><div class="content"><h3>Знижки</h3></div>
+          <div class="banner-media"></div>
+          <div class="overlay"></div>
+          <div class="content"><h3>Знижки</h3></div>
         </div>
         <div class="banner" id="bn-delivery">
-          <div class="banner-media"></div><div class="overlay"></div><div class="content"><h3>Доставка</h3></div>
+          <div class="banner-media"></div>
+          <div class="overlay"></div>
+          <div class="content"><h3>Доставка</h3></div>
         </div>
         <div class="banner" id="bn-consult">
-          <div class="banner-media"></div><div class="overlay"></div><div class="content"><h3>Консультація</h3></div>
+          <div class="banner-media"></div>
+          <div class="overlay"></div>
+          <div class="content"><h3>Консультація</h3></div>
         </div>
       </div>
     </div>
@@ -168,7 +227,7 @@
   </footer>
 
   <script>
-    // Разрешаем только нужные переходы
+    // Розрішені переходи
     document.addEventListener('click', (e)=>{
       const a=e.target.closest('a'); if(!a) return;
       const href=(a.getAttribute('href')||'').trim();
@@ -179,19 +238,19 @@
       if(!ok){ e.preventDefault(); e.stopPropagation(); }
     }, {capture:true});
 
-    /* ===== HERO SLIDES — локальные файлы ===== */
+    /* ===== HERO SLIDES — рівно ці 6 URL ===== */
     const slides = [
-      { img: '/img/54.png', title: 'Преміальний професійний догляд і косметика з Італії',
+      { img: 'https://i.ibb.co/v4FtNPkf/54.png', title: 'Преміальний професійний догляд і косметика з Італії',
         text: 'Дбайливо підбираю процедури та домашні засоби для сяйва шкіри у будь-якому віці.' },
-      { img: '/img/55.png', title: 'Індивідуальні програми краси',
+      { img: 'https://i.ibb.co/PzPk1zWD/55.png', title: 'Індивідуальні програми краси',
         text: 'Підлаштовую рекомендації під ваші цілі та ритм життя — комфортно й результативно.' },
-      { img: '/img/56.png', title: 'Естетичні процедури та домашній догляд',
+      { img: 'https://i.ibb.co/xKQ9Vxsr/56.png', title: 'Естетичні процедури та домашній догляд',
         text: 'Поєднання кабінетних технік і щоденних ритуалів дарує стабільний тонус і сяйво.' },
-      { img: '/img/57.png', title: 'Косметологічні набори для дому',
+      { img: 'https://i.ibb.co/Hp1sXZMJ/57.png', title: 'Косметологічні набори для дому',
         text: 'Готові рішення для різних типів шкіри — просто, економно та ефективно.' },
-      { img: '/img/58.png', title: 'Ніжне очищення — основа краси',
+      { img: 'https://i.ibb.co/BKdd0GM9/58.png', title: 'Ніжне очищення — основа краси',
         text: 'М’які формули без агресії підтримують бар’єр шкіри та готують її до активів.' },
-      { img: '/img/59.png', title: 'Сяйво щодня',
+      { img: 'https://i.ibb.co/jZMhqBkV/59.png', title: 'Сяйво щодня',
         text: 'Збалансовані засоби з фітоекстрактами та ефірними оліями для щоденного догляду.' },
     ];
 
@@ -207,8 +266,7 @@
         el.className='slide';
         el.innerHTML = `
           <div class="slide-media">
-            <img src="${s.img}" alt="" loading="${i===0?'eager':'lazy'}" decoding="async"
-                 onerror="this.onerror=null; this.style.display='none'">
+            ${pictureHTML(s.img)}
           </div>
           <div class="container slide-content">
             <div class="hero-text">
@@ -265,24 +323,27 @@
     const grid=document.getElementById('products-grid');
     grid.innerHTML = items.map(p=>`
       <article class="product">
-        <div class="img-wrap"><img src="${p.img}" alt="${p.title}" loading="lazy" decoding="async"></div>
+        <div class="img-wrap">
+          <img src="${cdn(p.img)}" alt="${p.title}" loading="lazy" decoding="async"
+               onerror="this.onerror=null; this.src='${FALLBACK}'">
+        </div>
         <div class="info">
           <h3 class="title">${p.title}</h3>
           ${p.price && p.price!=='—' ? `<div class="price">${p.price}</div>` : ``}
-          <div class="order-cta"><a class="button" href="https://t.me/cosmetologg_iryna" target="_blank" rel="noopener">Замовити</a></div>
+          <div class="order-cta">
+            <a class="button" href="https://t.me/cosmetologg_iryna" target="_blank" rel="noopener">Замовити</a>
+          </div>
         </div>
       </article>`).join('');
 
-    /* ===== BANNERS (нижние) — тоже локальные ===== */
-    const banners = {
-      'bn-discount':'/img/54.png',
-      'bn-delivery':'/img/55.png',
-      'bn-consult':'/img/56.png'
-    };
-    Object.entries(banners).forEach(([id,src])=>{
-      const wrap=document.getElementById(id).querySelector('.banner-media');
-      wrap.innerHTML=`<img src="${src}" alt="" loading="lazy" decoding="async" onerror="this.onerror=null;this.style.display='none'">`;
-    });
+    /* ===== BANNERS — теж через <picture> із твоїми URL ===== */
+    function setBanner(id, url){
+      const wrap = document.getElementById(id).querySelector('.banner-media');
+      wrap.innerHTML = pictureHTML(url);
+    }
+    setBanner('bn-discount','https://i.ibb.co/v4FtNPkf/54.png');
+    setBanner('bn-delivery','https://i.ibb.co/PzPk1zWD/55.png');
+    setBanner('bn-consult','https://i.ibb.co/xKQ9Vxsr/56.png');
   </script>
 </body>
 </html>
