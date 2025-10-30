@@ -5,6 +5,28 @@
   <title>Irina Kolokolova Cosmetology — Професійний догляд</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   <meta name="theme-color" content="#88bbb5" />
+  <meta name="description" content="Преміальний професійний догляд і косметика з Італії. Індивідуальні програми, естетичні процедури та домашні ритуали краси." />
+
+  <!-- Open Graph (превью при шарингу) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Irina Kolokolova Cosmetology — Професійний догляд">
+  <meta property="og:description" content="Преміальний професійний догляд і косметика з Італії. Індивідуальні програми, естетичні процедури та домашні ритуали краси.">
+  <meta property="og:image" content="https://i.ibb.co/nssBGshp/60.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <!-- при необходимости замени на реальный URL твоего сайта -->
+  <meta property="og:url" content="https://your-domain.example/">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Irina Kolokolova Cosmetology — Професійний догляд">
+  <meta name="twitter:description" content="Преміальний професійний догляд і косметика з Італії. Індивідуальні програми, естетичні процедури та домашні ритуали краси.">
+  <meta name="twitter:image" content="https://i.ibb.co/nssBGshp/60.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://i.ibb.co/nssBGshp/60.png"/>
+
   <style>
     :root{
       --primary:#88bbb5; --primary-700:#6aa39d;
@@ -40,7 +62,12 @@
     /* HERO SLIDER */
     .hero{position:relative}
     .slide{position:relative;min-height:320px;display:flex;align-items:flex-end}
-    .slide::before{ /* BG image */ content:"";position:absolute;inset:0;background:#ccc center/cover no-repeat;transform:scale(1.02)}
+    /* ключевая правка: используем переменную --bg-url */
+    .slide::before{
+      content:"";position:absolute;inset:0;
+      background:var(--bg-url, #ccc) center/cover no-repeat;
+      transform:scale(1.02)
+    }
     .slide::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.28),rgba(0,0,0,.42))}
     .slide-content{position:relative;z-index:1;width:100%}
     .hero-text{color:#fff;text-align:center;padding:22px 14px 20px;text-shadow:0 1px 2px rgba(0,0,0,.35)}
@@ -75,7 +102,8 @@
     .banner-row{display:grid;gap:14px;grid-template-columns:repeat(3,1fr)}
     @media (max-width:900px){.banner-row{grid-template-columns:1fr}}
     .banner{position:relative;border-radius:var(--radius);overflow:hidden;min-height:132px;box-shadow:var(--shadow);display:flex;align-items:flex-end;color:#fff}
-    .banner::before{content:"";position:absolute;inset:0;background:#ddd center/cover no-repeat}
+    /* ключевая правка: фон через переменную */
+    .banner::before{content:"";position:absolute;inset:0;background:var(--bg-url, #ddd) center/cover no-repeat}
     .banner .overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.22),rgba(0,0,0,.4))}
     .banner .content{position:relative;z-index:1;padding:16px}
     .banner h3{margin:0;color:#fff;font-size:clamp(18px,4vw,26px);font-weight:800}
@@ -90,6 +118,7 @@
     .footer a{color:#000}
     .footer p{margin:4px 0 0}
   </style>
+
   <script>
     // забираємо pinch-zoom
     document.addEventListener('touchmove', e => { if (e.scale !== 1) e.preventDefault(); }, {passive:false});
@@ -121,9 +150,8 @@
     </div>
   </header>
 
-  <!-- HERO SLIDER (картинка за текстом) -->
+  <!-- HERO SLIDER -->
   <section class="hero" id="hero">
-    <!-- слайды JS вставить -->
     <div class="hero-nav">
       <button class="hero-btn" id="prev" aria-label="Попередній">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -198,23 +226,19 @@
       if(!ok){ e.preventDefault(); e.stopPropagation(); }
     }, {capture:true});
 
-    /* ================= HERO SLIDES =================
-       ВСТАВТЕ СЮДИ ПРЯМІ ПОСИЛАННЯ НА ЗОБРАЖЕННЯ (i.ibb.co/...jpg):
-       - Замість ibb.co/PSvrckn тощо має бути формат:
-         https://i.ibb.co/<папка>/<ім'я-файлу>.jpg (або .png)
-    */
+    /* ================= HERO SLIDES ================= */
     const slides = [
-      { img: 'PUT_DIRECT_IMAGE_URL_1_HERE', title: 'Преміальний професійний догляд і косметика з Італії',
+      { img: 'https://i.ibb.co/v4FtNPkf/54.png', title: 'Преміальний професійний догляд і косметика з Італії',
         text: 'Дбайливо підбираю процедури та домашні засоби для сяйва шкіри у будь-якому віці.' },
-      { img: 'PUT_DIRECT_IMAGE_URL_2_HERE', title: 'Індивідуальні програми краси',
+      { img: 'https://i.ibb.co/PzPk1zWD/55.png', title: 'Індивідуальні програми краси',
         text: 'Підлаштовую рекомендації під ваші цілі та ритм життя — комфортно й результативно.' },
-      { img: 'PUT_DIRECT_IMAGE_URL_3_HERE', title: 'Естетичні процедури та домашній догляд',
+      { img: 'https://i.ibb.co/xKQ9Vxsr/56.png', title: 'Естетичні процедури та домашній догляд',
         text: 'Поєднання кабінетних технік і щоденних ритуалів дарує стабільний тонус і сяйво.' },
-      { img: 'PUT_DIRECT_IMAGE_URL_4_HERE', title: 'Косметологічні набори для дому',
+      { img: 'https://i.ibb.co/Hp1sXZMJ/57.png', title: 'Косметологічні набори для дому',
         text: 'Готові рішення для різних типів шкіри — просто, економно та ефективно.' },
-      { img: 'PUT_DIRECT_IMAGE_URL_5_HERE', title: 'Ніжне очищення — основа краси',
+      { img: 'https://i.ibb.co/BKdd0GM9/58.png', title: 'Ніжне очищення — основа краси',
         text: 'М’які формули без агресії підтримують бар’єр шкіри та готують її до активів.' },
-      { img: 'PUT_DIRECT_IMAGE_URL_6_HERE', title: 'Сяйво щодня',
+      { img: 'https://i.ibb.co/jZMhqBkV/59.png', title: 'Сяйво щодня',
         text: 'Збалансовані засоби з фітоекстрактами та ефірними оліями для щоденного догляду.' },
     ];
 
@@ -224,12 +248,13 @@
     function renderSlides(){
       hero.querySelectorAll('.slide').forEach(n=>n.remove());
       dotsWrap.innerHTML='';
+
       slides.forEach((s, i)=>{
         const el = document.createElement('div');
         el.className='slide';
-        el.style.setProperty('--bg', `url('${s.img}')`);
-        el.style.background='transparent'; // we use ::before
-        el.style.setProperty('--i', i);
+        // достаточно выставить переменную — CSS возьмет фон из нее
+        el.style.setProperty('--bg-url', `url('${s.img}')`);
+
         el.innerHTML = `
           <div class="container slide-content">
             <div class="hero-text">
@@ -237,29 +262,14 @@
               <p>${s.text}</p>
             </div>
           </div>`;
-        // set bg on ::before via style
-        el.style.setProperty('--bg-url', s.img);
-        el.style.cssText += ` --bg-url:url('${s.img}'); `;
-        el.addEventListener('error', ()=>{ /* ignore */ });
 
         hero.insertBefore(el, hero.firstChild);
-        const d = document.createElement('span'); d.className='hero-dot'; d.dataset.index=i; dotsWrap.appendChild(d);
-      });
 
-      // apply bg to pseudo via inline stylesheet
-      Array.from(hero.querySelectorAll('.slide')).forEach((sl, idx)=>{
-        const url = slides[idx].img || '';
-        sl.style.setProperty('--bg-url', `url('${url}')`);
-        // fallback if CSS var not used: set background on ::before using direct style
-        sl.style.setProperty('--bg-image', `url('${url}')`);
-        sl.style.setProperty('--bg', `url('${url}')`);
-        sl.style.setProperty('backgroundImage', `url('${url}')`);
-        // also patch ::before using a helper style tag per slide
-        const st = document.createElement('style');
-        st.textContent = `
-          #hero .slide:nth-of-type(${slides.length - idx})::before{ background-image:url('${url}'); }
-        `;
-        document.head.appendChild(st);
+        const d = document.createElement('span');
+        d.className='hero-dot';
+        d.dataset.index=i;
+        d.addEventListener('click',()=>activate(i));
+        dotsWrap.appendChild(d);
       });
     }
     renderSlides();
@@ -275,6 +285,7 @@
 
     document.getElementById('prev').onclick=()=>activate(idx-1);
     document.getElementById('next').onclick=()=>activate(idx+1);
+
     // swipe
     (function(){
       let x0=null;
@@ -295,8 +306,8 @@
       {img:'https://vivabeauty.ee/wp-content/uploads/2022/09/cc14.jpg', title:'Зволожувальне очищувальне молочко', price:'29,00 €'},
       {img:'https://vivabeauty.ee/wp-content/uploads/2022/09/cc15.jpg', title:'Зволожувальний тонік', price:'29,00 €'},
       {img:'https://vivabeauty.ee/wp-content/uploads/2022/09/cc18.jpg', title:'Тонік для чутливої шкіри', price:'29,00 €'},
-      {img:'https://vivabeauty.ee/wp-content/uploads/2022/09/glp1.jpg', title:'Кометологічні подарункові набори', price:'—'},
-      {img:'https://vivabeauty.ee/wp-content/uploads/2022/09/DSC_5227.jpg', title:'Кометологічні подарункові набори', price:'—'}
+      {img:'https://vivabeauty.ee/wp-content/uploads/2022/09/glp1.jpg', title:'Косметологічні подарункові набори', price:'—'},
+      {img:'https://vivabeauty.ee/wp-content/uploads/2022/09/DSC_5227.jpg', title:'Косметологічні подарункові набори', price:'—'}
     ];
     const grid=document.getElementById('products-grid');
     grid.innerHTML = items.map(p=>`
@@ -311,18 +322,10 @@
         </div>
       </article>`).join('');
 
-    // BANNERS: підставляємо ваші зображення (потрібні прямі i.ibb.co лінки)
-    document.querySelector('#bn-discount').style.setProperty('--bg', 'url(PUT_DIRECT_IMAGE_URL_1_HERE)');
-    document.querySelector('#bn-discount').style.background='transparent';
-    document.querySelector('#bn-discount').style.cssText += `background:transparent;`;
-    document.querySelector('#bn-discount').style.setProperty('backgroundImage','none');
-    document.head.insertAdjacentHTML('beforeend', `<style>#bn-discount::before{background-image:url('PUT_DIRECT_IMAGE_URL_1_HERE')}</style>`);
-
-    document.querySelector('#bn-delivery').style.setProperty('--bg','url(PUT_DIRECT_IMAGE_URL_2_HERE)');
-    document.head.insertAdjacentHTML('beforeend', `<style>#bn-delivery::before{background-image:url('PUT_DIRECT_IMAGE_URL_2_HERE')}</style>`);
-
-    document.querySelector('#bn-consult').style.setProperty('--bg','url(PUT_DIRECT_IMAGE_URL_3_HERE)');
-    document.head.insertAdjacentHTML('beforeend', `<style>#bn-consult::before{background-image:url('PUT_DIRECT_IMAGE_URL_3_HERE')}</style>`);
+    // BANNERS: задаем фон через переменную (как у слайдов)
+    document.getElementById('bn-discount').style.setProperty('--bg-url', "url('https://i.ibb.co/v4FtNPkf/54.png')");
+    document.getElementById('bn-delivery').style.setProperty('--bg-url', "url('https://i.ibb.co/PzPk1zWD/55.png')");
+    document.getElementById('bn-consult').style.setProperty('--bg-url', "url('https://i.ibb.co/xKQ9Vxsr/56.png')");
   </script>
 </body>
 </html>
