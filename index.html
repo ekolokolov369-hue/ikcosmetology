@@ -12,19 +12,16 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Irina Kolokolova Cosmetology — Професійний догляд">
   <meta property="og:description" content="Преміальний професійний догляд і косметика з Італії. Індивідуальні програми, естетичні процедури та домашні ритуали краси.">
-  <meta property="og:image" content="https://images.weserv.nl/?url=i.ibb.co/nssBGshp/60.png">
+  <meta property="og:image" content="https://i.ibb.co/nssBGshp/60.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:url" content="https://ekolokolov369-hue.github.io/ikcosmetology/">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Irina Kolokolova Cosmetology — Професійний догляд">
   <meta name="twitter:description" content="Преміальний професійний догляд і косметика з Італії. Індивідуальні програми, естетичні процедури та домашні ритуали краси.">
-  <meta name="twitter:image" content="https://images.weserv.nl/?url=i.ibb.co/nssBGshp/60.png">
+  <meta name="twitter:image" content="https://i.ibb.co/nssBGshp/60.png">
 
-  <link rel="icon" type="image/png" href="https://images.weserv.nl/?url=i.ibb.co/nssBGshp/60.png"/>
-
-  <!-- Прелоад первой картинки слайдера для мгновенного отображения -->
-  <link rel="preload" as="image" href="https://images.weserv.nl/?url=i.ibb.co/v4FtNPkf/54.png">
+  <link rel="icon" type="image/png" href="https://i.ibb.co/nssBGshp/60.png"/>
 
   <style>
     :root{
@@ -62,7 +59,7 @@
     .hero{position:relative}
     .slide{position:relative;min-height:320px;display:flex;align-items:flex-end;overflow:hidden}
     .slide-media{position:absolute;inset:0;z-index:0}
-    .slide-media picture, .slide-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    .slide-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
     .slide::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.28),rgba(0,0,0,.42));z-index:0}
     .slide-content{position:relative;z-index:1;width:100%}
     .hero-text{color:#fff;text-align:center;padding:22px 14px 20px;text-shadow:0 1px 2px rgba(0,0,0,.35)}
@@ -98,7 +95,7 @@
     @media (max-width:900px){.banner-row{grid-template-columns:1fr}}
     .banner{position:relative;border-radius:var(--radius);overflow:hidden;min-height:132px;box-shadow:var(--shadow);display:flex;align-items:flex-end;color:#fff}
     .banner-media{position:absolute;inset:0;z-index:0}
-    .banner-media picture, .banner-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    .banner-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
     .banner .overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.22),rgba(0,0,0,.4));z-index:0}
     .banner .content{position:relative;z-index:1;padding:16px}
     .banner h3{margin:0;color:#fff;font-size:clamp(18px,4vw,26px);font-weight:800}
@@ -112,29 +109,37 @@
     .icon{width:20px;height:20px}
     .footer a{color:#000}
     .footer p{margin:4px 0 0}
-
-    /* Страховка для изображений в hero */
-    .slide-media img { width:100%; height:100%; object-fit:cover; display:block; }
   </style>
 
   <script>
-    // Всегда грузим через прокси (без <picture>), чтобы исключить ситуацию,
-    // когда <source> не загружается и браузер не переключается на <img>.
-    // Дополнительно повышаем качество и плотность: 1920 по ширине, dpr=1.5, q=85, webp где возможно.
-    const cdn = (u) => `https://images.weserv.nl/?url=${encodeURIComponent(u.replace(/^https?:\/\//,''))}&w=1920&dpr=1.5&q=85&we`;
-    const FALLBACK = 'https://images.weserv.nl/?url=i.ibb.co/nssBGshp/60.png';
+    // ЖЁСТКИЙ надёжный лоадер картинок:
+    // 1) пробуем ОРИГИНАЛ (i.ibb.co)
+    // 2) если ошибка — переключаемся на wsrv.nl (прокси)
+    // 3) если опять ошибка — переключаемся на cdn.statically.io
+    // 4) если всё упало — ставим маленький png-заглушку
+    const FALLBACK = 'data:image/gif;base64,R0lGODlhAQABAAAAACw=';
 
-    function pictureHTML(url, eager=false, alt='') {
-      const proxied = cdn(url);
-      return `<img src="${proxied}"
-                   alt="${alt}"
+    function robustImg(url, eager=false, alt='') {
+      const urlNoProto = url.replace(/^https?:\/\//,'');
+      const proxy1 = `https://wsrv.nl/?url=${encodeURIComponent(urlNoProto)}&w=1920&dpr=1.5&q=85&we`;
+      const proxy2 = `https://cdn.statically.io/img/${urlNoProto}`;
+
+      // onerror-цепочка
+      const onerr = `
+        if(!this.dataset.step){ this.dataset.step='1'; this.src='${proxy1}'; }
+        else if(this.dataset.step==='1'){ this.dataset.step='2'; this.src='${proxy2}'; }
+        else { this.onerror=null; this.src='${FALLBACK}'; }
+      `;
+
+      return `<img src="${url}"
+                   alt="${alt.replace(/"/g,'&quot;')}"
                    ${eager ? 'loading="eager" fetchpriority="high"' : 'loading="lazy"'}
                    decoding="async"
                    referrerpolicy="no-referrer"
-                   onerror="this.onerror=null; this.src='${FALLBACK}'">`;
+                   onerror="${onerr}">`;
     }
 
-    // заборона pinch-zoom
+    // запрет pinch-zoom
     document.addEventListener('touchmove', e => { if (e.scale !== 1) e.preventDefault(); }, {passive:false});
   </script>
 </head>
@@ -143,7 +148,8 @@
   <header class="header">
     <div class="container header-top">
       <div class="logo-wrap">
-        <img src="https://images.weserv.nl/?url=i.ibb.co/9X7PvSy/2025-10-30-160911.png" alt="Irina Kolokolova Cosmetology" loading="eager" decoding="async" fetchpriority="high">
+        <img src="https://i.ibb.co/9X7PvSy/2025-10-30-160911.png" alt="Irina Kolokolova Cosmetology" loading="eager" decoding="async" fetchpriority="high"
+             onerror="this.onerror=null; this.src='https://wsrv.nl/?url=i.ibb.co/9X7PvSy/2025-10-30-160911.png'">
       </div>
       <div class="header-actions">
         <a class="btn" href="tel:+380960120122" aria-label="Подзвонити">
@@ -235,7 +241,7 @@
   </footer>
 
   <script>
-    // Розрішені переходи
+    // Разрешённые переходы
     document.addEventListener('click', (e)=>{
       const a=e.target.closest('a'); if(!a) return;
       const href=(a.getAttribute('href')||'').trim();
@@ -246,7 +252,7 @@
       if(!ok){ e.preventDefault(); e.stopPropagation(); }
     }, {capture:true});
 
-    /* ===== HERO SLIDES — рівно ці 6 URL ===== */
+    /* ===== HERO SLIDES — твои 6 URL ===== */
     const slides = [
       { img: 'https://i.ibb.co/v4FtNPkf/54.png', title: 'Преміальний професійний догляд і косметика з Італії',
         text: 'Дбайливо підбираю процедури та домашні засоби для сяйва шкіри у будь-якому віці.' },
@@ -274,7 +280,7 @@
         el.className='slide';
         el.innerHTML = `
           <div class="slide-media">
-            ${pictureHTML(s.img, i===0, s.title)}
+            ${robustImg(s.img, i===0, s.title)}
           </div>
           <div class="container slide-content">
             <div class="hero-text">
@@ -332,8 +338,7 @@
     grid.innerHTML = items.map(p=>`
       <article class="product">
         <div class="img-wrap">
-          <img src="${cdn(p.img)}" alt="${p.title}" loading="lazy" decoding="async"
-               onerror="this.onerror=null; this.src='${FALLBACK}'">
+          ${robustImg(p.img, false, p.title)}
         </div>
         <div class="info">
           <h3 class="title">${p.title}</h3>
@@ -344,10 +349,10 @@
         </div>
       </article>`).join('');
 
-    /* ===== BANNERS — через pictureHTML із твоїми URL ===== */
+    /* ===== BANNЕРЫ ===== */
     function setBanner(id, url){
       const wrap = document.getElementById(id).querySelector('.banner-media');
-      wrap.innerHTML = pictureHTML(url);
+      wrap.innerHTML = robustImg(url, false, '');
     }
     setBanner('bn-discount','https://i.ibb.co/v4FtNPkf/54.png');
     setBanner('bn-delivery','https://i.ibb.co/PzPk1zWD/55.png');
