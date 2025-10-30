@@ -23,6 +23,9 @@
 
   <link rel="icon" type="image/png" href="https://images.weserv.nl/?url=i.ibb.co/nssBGshp/60.png"/>
 
+  <!-- Прелоад первой картинки слайдера для мгновенного отображения -->
+  <link rel="preload" as="image" href="https://images.weserv.nl/?url=i.ibb.co/v4FtNPkf/54.png">
+
   <style>
     :root{
       --primary:#88bbb5; --primary-700:#6aa39d;
@@ -109,21 +112,26 @@
     .icon{width:20px;height:20px}
     .footer a{color:#000}
     .footer p{margin:4px 0 0}
+
+    /* Страховка для изображений в hero */
+    .slide-media img { width:100%; height:100%; object-fit:cover; display:block; }
   </style>
 
   <script>
-    // CDN-проксі + складання <picture> (проксі як основний, прямий як запасний)
-    const cdn = (u) => `https://images.weserv.nl/?url=${encodeURIComponent(u.replace(/^https?:\/\//,''))}`;
+    // Всегда грузим через прокси (без <picture>), чтобы исключить ситуацию,
+    // когда <source> не загружается и браузер не переключается на <img>.
+    // Дополнительно повышаем качество и плотность: 1920 по ширине, dpr=1.5, q=85, webp где возможно.
+    const cdn = (u) => `https://images.weserv.nl/?url=${encodeURIComponent(u.replace(/^https?:\/\//,''))}&w=1920&dpr=1.5&q=85&we`;
     const FALLBACK = 'https://images.weserv.nl/?url=i.ibb.co/nssBGshp/60.png';
 
-    function pictureHTML(url) {
+    function pictureHTML(url, eager=false, alt='') {
       const proxied = cdn(url);
-      return `
-        <picture>
-          <source srcset="${proxied}">
-          <img src="${url}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"
-               onerror="this.onerror=null; this.src='${FALLBACK}'">
-        </picture>`;
+      return `<img src="${proxied}"
+                   alt="${alt}"
+                   ${eager ? 'loading="eager" fetchpriority="high"' : 'loading="lazy"'}
+                   decoding="async"
+                   referrerpolicy="no-referrer"
+                   onerror="this.onerror=null; this.src='${FALLBACK}'">`;
     }
 
     // заборона pinch-zoom
@@ -266,7 +274,7 @@
         el.className='slide';
         el.innerHTML = `
           <div class="slide-media">
-            ${pictureHTML(s.img)}
+            ${pictureHTML(s.img, i===0, s.title)}
           </div>
           <div class="container slide-content">
             <div class="hero-text">
@@ -336,7 +344,7 @@
         </div>
       </article>`).join('');
 
-    /* ===== BANNERS — теж через <picture> із твоїми URL ===== */
+    /* ===== BANNERS — через pictureHTML із твоїми URL ===== */
     function setBanner(id, url){
       const wrap = document.getElementById(id).querySelector('.banner-media');
       wrap.innerHTML = pictureHTML(url);
