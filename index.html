@@ -6,56 +6,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   <meta name="theme-color" content="#88bbb5" />
   <meta name="description" content="Преміальний професійний догляд і косметика з Італії. Індивідуальні програми, естетичні процедури та домашні ритуали краси." />
-  <meta name="referrer" content="no-referrer">
 
-  <!-- OG/Twitter -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Irina Kolokolova Cosmetology — Професійний догляд">
-  <meta property="og:description" content="Преміальний професійний догляд і косметика з Італії. Індивідуальні програми, естетичні процедури та домашні ритуали краси.">
-  <meta property="og:image" content="https://images.weserv.nl/?url=i.ibb.co/nssBGshp/60.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:url" content="https://ekolokolov369-hue.github.io/ikcosmetology/">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Irina Kolokolova Cosmetology — Професійний догляд">
-  <meta name="twitter:description" content="Преміальний професійний догляд і косметика з Італії. Індивідуальні програми, естетичні процедури та домашні ритуали краси.">
-  <meta name="twitter:image" content="https://images.weserv.nl/?url=i.ibb.co/nssBGshp/60.png">
-
-  <link rel="icon" type="image/png" href="https://images.weserv.nl/?url=i.ibb.co/nssBGshp/60.png"/>
+  <link rel="icon" type="image/png" href="assets/54.png"/>
 
   <style>
-    :root{
-      --primary:#88bbb5; --primary-700:#6aa39d;
-      --text:#000; --muted:#5f5f5f; --bg:#fff;
-      --radius:16px; --shadow:0 10px 30px rgba(0,0,0,.07);
-    }
+    :root{ --primary:#88bbb5; --primary-700:#6aa39d; --text:#000; --muted:#5f5f5f; --bg:#fff; --radius:16px; --shadow:0 10px 30px rgba(0,0,0,.07); }
     *{box-sizing:border-box}
-    html,body{margin:0;background:var(--bg);color:var(--muted);
-      font-family:"Source Sans Pro",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      overflow-x:hidden;-webkit-text-size-adjust:100%;touch-action:pan-y}
-    a{color:var(--primary);text-decoration:none}
-    a:hover{color:var(--primary-700)}
+    html,body{margin:0;background:var(--bg);color:var(--muted);font-family:"Source Sans Pro",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;overflow-x:hidden;-webkit-text-size-adjust:100%;touch-action:pan-y}
+    a{color:var(--primary);text-decoration:none} a:hover{color:var(--primary-700)}
     img{display:block;max-width:100%;height:auto}
-
     .container{max-width:1250px;margin:0 auto;padding:0 16px}
 
-    /* HEADER */
     .header{position:sticky;top:0;z-index:40;background:#fff;border-bottom:1px solid #eee;box-shadow:0 2px 10px rgba(0,0,0,.03)}
     .header-top{padding:10px 0 6px}
     .logo-wrap{display:flex;justify-content:center}
     .logo-wrap img{height:56px;width:auto}
     .header-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:8px 0 10px}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;
-      height:38px;padding:0 12px;border-radius:999px;border:1px solid var(--primary);
-      background:var(--primary);color:#fff;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
-      font-size:.74rem;box-shadow:var(--shadow);transition:.15s}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:38px;padding:0 12px;border-radius:999px;border:1px solid var(--primary);background:var(--primary);color:#fff;font-weight:700;letter-spacing:.04em;text-transform:uppercase;font-size:.74rem;box-shadow:var(--shadow);transition:.15s}
     .btn:hover{transform:translateY(-1px);background:var(--primary-700);border-color:var(--primary-700)}
     .btn .icon{width:17px;height:17px}
-    .btn-ghost{background:transparent;color:var(--primary)}
-    .btn-ghost:hover{background:var(--primary);color:#fff}
+    .btn-ghost{background:transparent;color:var(--primary)} .btn-ghost:hover{background:var(--primary);color:#fff}
     @media (max-width:390px){.btn{font-size:.7rem;height:36px;padding:0 10px}.btn .icon{width:16px;height:16px}}
 
-    /* HERO (IMG) */
     .hero{position:relative}
     .slide{position:relative;min-height:320px;display:flex;align-items:flex-end;overflow:hidden}
     .slide-media{position:absolute;inset:0;z-index:0}
@@ -65,14 +37,11 @@
     .hero-text{color:#fff;text-align:center;padding:22px 14px 20px;text-shadow:0 1px 2px rgba(0,0,0,.35)}
     .hero-text h1{margin:0 0 8px;font-size:clamp(22px,5vw,30px);font-weight:800}
     .hero-text p{margin:0 auto;max-width:820px;color:#f5f5f5}
-
     .hero-nav{position:absolute;top:50%;left:0;right:0;display:flex;justify-content:space-between;transform:translateY(-50%);padding:0 6px;pointer-events:none}
     .hero-btn{pointer-events:auto;width:40px;height:40px;border-radius:999px;border:1px solid #fff;background:rgba(255,255,255,.2);backdrop-filter:blur(2px);display:grid;place-items:center;color:#fff}
     .hero-dots{position:absolute;left:0;right:0;bottom:8px;display:flex;gap:6px;justify-content:center}
-    .hero-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.5)}
-    .hero-dot.active{background:#fff}
+    .hero-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.5)} .hero-dot.active{background:#fff}
 
-    /* PRODUCTS */
     .products{padding:16px 0 6px}
     .grid{display:grid;gap:18px;grid-template-columns:repeat(4,1fr)}
     @media (max-width:1100px){.grid{grid-template-columns:repeat(3,1fr)}}
@@ -88,7 +57,6 @@
     .order-cta .button{width:100%;background:var(--primary);border:1px solid var(--primary);color:#fff;border-radius:999px;height:42px;display:flex;align-items:center;justify-content:center;font-weight:700;letter-spacing:.04em}
     .order-cta .button:hover{background:var(--primary-700);border-color:var(--primary-700)}
 
-    /* BANNERS (IMG) */
     .banner-wrap{padding:18px 0}
     .banner-narrow{max-width:950px;margin:0 auto}
     .banner-row{display:grid;gap:14px;grid-template-columns:repeat(3,1fr)}
@@ -100,7 +68,6 @@
     .banner .content{position:relative;z-index:1;padding:16px}
     .banner h3{margin:0;color:#fff;font-size:clamp(18px,4vw,26px);font-weight:800}
 
-    /* FOOTER */
     .footer{background:var(--primary);color:#000;padding:18px 0 14px}
     .footer-inner{display:flex;flex-direction:column;align-items:center;gap:10px}
     .footer .socials{display:flex;gap:10px}
@@ -110,47 +77,12 @@
     .footer a{color:#000}
     .footer p{margin:4px 0 0}
   </style>
-
-  <script>
-    // ПРОЧНЫЙ ЛОАДЕР: начинаем с weserv (обходит хотлинк-403), потом statically, потом оригинал
-    const FALLBACK = 'data:image/gif;base64,R0lGODlhAQABAAAAACw=';
-
-    function viaWeserv(rawUrl){
-      // high quality + webp где возможно
-      const u = rawUrl.replace(/^https?:\/\//,'');
-      return `https://images.weserv.nl/?url=${encodeURIComponent(u)}&w=1920&dpr=1.5&q=85&we`;
-    }
-    function viaStatically(rawUrl){
-      return `https://cdn.statically.io/img/${rawUrl.replace(/^https?:\/\//,'')}`;
-    }
-
-    function robustImg(url, eager=false, alt=''){
-      const w = viaWeserv(url);
-      const s = viaStatically(url);
-      const onerr = `
-        if(!this.dataset.step){ this.dataset.step='1'; this.src='${s}'; }
-        else if(this.dataset.step==='1'){ this.dataset.step='2'; this.src='${url}'; }
-        else { this.onerror=null; this.src='${FALLBACK}'; }
-      `;
-      return `<img src="${w}"
-                   alt="${alt.replace(/"/g,'&quot;')}"
-                   ${eager ? 'loading="eager" fetchpriority="high"' : 'loading="lazy"'}
-                   decoding="async"
-                   referrerpolicy="no-referrer"
-                   onerror="${onerr}">`;
-    }
-
-    // запрет pinch-zoom
-    document.addEventListener('touchmove', e => { if (e.scale !== 1) e.preventDefault(); }, {passive:false});
-  </script>
 </head>
 <body>
-  <!-- HEADER -->
   <header class="header">
     <div class="container header-top">
       <div class="logo-wrap">
-        <img src="https://images.weserv.nl/?url=i.ibb.co/9X7PvSy/2025-10-30-160911.png" alt="Irina Kolokolova Cosmetology" loading="eager" decoding="async" fetchpriority="high"
-             onerror="if(!this.dataset.step){this.dataset.step='1';this.src='https://cdn.statically.io/img/i.ibb.co/9X7PvSy/2025-10-30-160911.png'}else{this.onerror=null;this.src='https://i.ibb.co/9X7PvSy/2025-10-30-160911.png'}">
+        <img src="assets/54.png" alt="Irina Kolokolova Cosmetology" loading="eager" decoding="async" fetchpriority="high">
       </div>
       <div class="header-actions">
         <a class="btn" href="tel:+380960120122" aria-label="Подзвонити">
@@ -171,7 +103,6 @@
     </div>
   </header>
 
-  <!-- HERO -->
   <section class="hero" id="hero">
     <div class="hero-nav">
       <button class="hero-btn" id="prev" aria-label="Попередній">
@@ -184,89 +115,50 @@
     <div class="hero-dots" id="dots"></div>
   </section>
 
-  <!-- PRODUCTS -->
   <section class="products">
-    <div class="container">
-      <div id="products-grid" class="grid"></div>
-    </div>
+    <div class="container"><div id="products-grid" class="grid"></div></div>
   </section>
 
-  <!-- BANNERS -->
   <section class="banner-wrap">
     <div class="banner-narrow">
       <div class="banner-row">
-        <div class="banner" id="bn-discount">
-          <div class="banner-media"></div>
-          <div class="overlay"></div>
-          <div class="content"><h3>Знижки</h3></div>
-        </div>
-        <div class="banner" id="bn-delivery">
-          <div class="banner-media"></div>
-          <div class="overlay"></div>
-          <div class="content"><h3>Доставка</h3></div>
-        </div>
-        <div class="banner" id="bn-consult">
-          <div class="banner-media"></div>
-          <div class="overlay"></div>
-          <div class="content"><h3>Консультація</h3></div>
-        </div>
+        <div class="banner" id="bn-discount"><div class="banner-media"></div><div class="overlay"></div><div class="content"><h3>Знижки</h3></div></div>
+        <div class="banner" id="bn-delivery"><div class="banner-media"></div><div class="overlay"></div><div class="content"><h3>Доставка</h3></div></div>
+        <div class="banner" id="bn-consult"><div class="banner-media"></div><div class="overlay"></div><div class="content"><h3>Консультація</h3></div></div>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer-inner">
       <div class="socials">
-        <a class="icon-btn" href="tel:+380960120122" aria-label="Подзвонити">
-          <svg class="icon" viewBox="0 0 24 24" fill="none">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.12.9.3 1.78.54 2.63a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.45-1.06a2 2 0 0 1 2.11-.45c.85.24 1.73.42 2.63.54A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </a>
-        <a class="icon-btn" href="https://www.instagram.com/irina.kolokolova_cosmetology/" target="_blank" rel="noopener" aria-label="Instagram">
-          <svg class="icon" viewBox="0 0 24 24" fill="none">
-            <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2"/>
-            <circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="2"/>
-            <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/>
-          </svg>
-        </a>
-        <a class="icon-btn" href="https://t.me/cosmetologg_iryna" target="_blank" rel="noopener" aria-label="Telegram">
-          <svg class="icon" viewBox="0 0 24 24" fill="none">
-            <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            <path d="M22 2l-7 20-4-9-9-4 20-7z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" fill="none"/>
-          </svg>
-        </a>
+        <a class="icon-btn" href="tel:+380960120122" aria-label="Подзвонити"><svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.12.9.3 1.78.54 2.63a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.45-1.06a2 2 0 0 1 2.11-.45c.85.24 1.73.42 2.63.54A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a>
+        <a class="icon-btn" href="https://www.instagram.com/irina.kolokolova_cosmetology/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg></a>
+        <a class="icon-btn" href="https://t.me/cosmetologg_iryna" target="_blank" rel="noopener" aria-label="Telegram"><svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M22 2l-7 20-4-9-9-4 20-7z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" fill="none"/></svg></a>
       </div>
       <p>© 2025 Irina Kolokolova Cosmetology</p>
     </div>
   </footer>
 
   <script>
-    // Разрешённые переходы
+    // Ограничиваем внешние переходы (оставляем только контакты/соцсети)
     document.addEventListener('click', (e)=>{
       const a=e.target.closest('a'); if(!a) return;
       const href=(a.getAttribute('href')||'').trim();
       const ok = href.startsWith('tel:') ||
         href.startsWith('https://www.instagram.com/irina.kolokolova_cosmetology/') ||
-        href.startsWith('https://t.me/cosmetologg_iryna') ||
-        href==='#' || href==='';
+        href.startsWith('https://t.me/cosmetologg_iryna') || href==='#' || href==='';
       if(!ok){ e.preventDefault(); e.stopPropagation(); }
     }, {capture:true});
 
-    /* ===== HERO SLIDES — ровно эти 6 URL ===== */
+    // Слайды — ЛОКАЛЬНЫЕ файлы
     const slides = [
-      { img: 'https://i.ibb.co/v4FtNPkf/54.png', title: 'Преміальний професійний догляд і косметика з Італії',
-        text: 'Дбайливо підбираю процедури та домашні засоби для сяйва шкіри у будь-якому віці.' },
-      { img: 'https://i.ibb.co/PzPk1zWD/55.png', title: 'Індивідуальні програми краси',
-        text: 'Підлаштовую рекомендації під ваші цілі та ритм життя — комфортно й результативно.' },
-      { img: 'https://i.ibb.co/xKQ9Vxsr/56.png', title: 'Естетичні процедури та домашній догляд',
-        text: 'Поєднання кабінетних технік і щоденних ритуалів дарує стабільний тонус і сяйво.' },
-      { img: 'https://i.ibb.co/Hp1sXZMJ/57.png', title: 'Косметологічні набори для дому',
-        text: 'Готові рішення для різних типів шкіри — просто, економно та ефективно.' },
-      { img: 'https://i.ibb.co/BKdd0GM9/58.png', title: 'Ніжне очищення — основа краси',
-        text: 'М’які формули без агресії підтримують бар’єр шкіри та готують її до активів.' },
-      { img: 'https://i.ibb.co/jZMhqBkV/59.png', title: 'Сяйво щодня',
-        text: 'Збалансовані засоби з фітоекстрактами та ефірними оліями для щоденного догляду.' },
+      { img: 'assets/54.png', title: 'Преміальний професійний догляд і косметика з Італії', text: 'Дбайливо підбираю процедури та домашні засоби для сяйва шкіри у будь-якому віці.' },
+      { img: 'assets/55.png', title: 'Індивідуальні програми краси', text: 'Підлаштовую рекомендації під ваші цілі та ритм життя — комфортно й результативно.' },
+      { img: 'assets/56.png', title: 'Естетичні процедури та домашній догляд', text: 'Поєднання кабінетних технік і щоденних ритуалів дарує стабільний тонус і сяйво.' },
+      { img: 'assets/57.png', title: 'Косметологічні набори для дому', text: 'Готові рішення для різних типів шкіри — просто, економно та ефективно.' },
+      { img: 'assets/58.png', title: 'Ніжне очищення — основа краси', text: 'М’які формули без агресії підтримують бар’єр шкіри та готують її до активів.' },
+      { img: 'assets/59.png', title: 'Сяйво щодня', text: 'Збалансовані засоби з фітоекстрактами та ефірними оліями для щоденного догляду.' },
     ];
 
     const hero = document.getElementById('hero');
@@ -275,27 +167,18 @@
     function renderSlides(){
       hero.querySelectorAll('.slide').forEach(n=>n.remove());
       dotsWrap.innerHTML='';
-
       slides.forEach((s, i)=>{
         const el = document.createElement('div');
         el.className='slide';
         el.innerHTML = `
           <div class="slide-media">
-            ${robustImg(s.img, i===0, s.title)}
+            <img src="${s.img}" alt="${s.title.replace(/"/g,'&quot;')}" ${i===0?'loading="eager" fetchpriority="high"':''} decoding="async">
           </div>
           <div class="container slide-content">
-            <div class="hero-text">
-              <h1>${s.title}</h1>
-              <p>${s.text}</p>
-            </div>
+            <div class="hero-text"><h1>${s.title}</h1><p>${s.text}</p></div>
           </div>`;
         hero.insertBefore(el, hero.firstChild);
-
-        const d = document.createElement('span');
-        d.className='hero-dot';
-        d.dataset.index=i;
-        d.addEventListener('click',()=>activate(i));
-        dotsWrap.appendChild(d);
+        const d = document.createElement('span'); d.className='hero-dot'; d.dataset.index=i; d.addEventListener('click',()=>activate(i)); dotsWrap.appendChild(d);
       });
     }
     renderSlides();
@@ -308,23 +191,21 @@
       dotsWrap.querySelectorAll('.hero-dot').forEach((d,k)=> d.classList.toggle('active', k===idx));
     }
     activate(0);
-
     document.getElementById('prev').onclick=()=>activate(idx-1);
     document.getElementById('next').onclick=()=>activate(idx+1);
 
-    // swipe
+    // свайп
     (function(){
       let x0=null;
       hero.addEventListener('touchstart',e=>{x0=e.touches[0].clientX},{passive:true});
       hero.addEventListener('touchend',e=>{
-        if(x0==null) return;
-        let dx=e.changedTouches[0].clientX - x0;
+        if(x0==null) return; let dx=e.changedTouches[0].clientX - x0;
         if(Math.abs(dx)>40) { dx>0?activate(idx-1):activate(idx+1); }
         x0=null;
       });
     })();
 
-    /* ===== PRODUCTS ===== */
+    // Товары (оставил как было)
     const items = [
       {img:'https://vivabeauty.ee/wp-content/uploads/2022/09/cc11.jpg', title:'Очищувальне молочко з мікронізованим екстрактом вівса', price:'29,00 €'},
       {img:'https://vivabeauty.ee/wp-content/uploads/2022/09/cc12.jpg', title:'Тонік «Морква, Женьшень і Центела азійська»', price:'29,00 €'},
@@ -335,29 +216,21 @@
       {img:'https://vivabeauty.ee/wp-content/uploads/2022/09/glp1.jpg', title:'Косметологічні подарункові набори', price:'—'},
       {img:'https://vivabeauty.ee/wp-content/uploads/2022/09/DSC_5227.jpg', title:'Косметологічні подарункові набори', price:'—'}
     ];
-    const grid=document.getElementById('products-grid');
-    grid.innerHTML = items.map(p=>`
+    document.getElementById('products-grid').innerHTML = items.map(p=>`
       <article class="product">
-        <div class="img-wrap">
-          ${robustImg(p.img, false, p.title)}
-        </div>
+        <div class="img-wrap"><img src="${p.img}" alt="${p.title}" loading="lazy" decoding="async"></div>
         <div class="info">
           <h3 class="title">${p.title}</h3>
           ${p.price && p.price!=='—' ? `<div class="price">${p.price}</div>` : ``}
-          <div class="order-cta">
-            <a class="button" href="https://t.me/cosmetologg_iryna" target="_blank" rel="noopener">Замовити</a>
-          </div>
+          <div class="order-cta"><a class="button" href="https://t.me/cosmetologg_iryna" target="_blank" rel="noopener">Замовити</a></div>
         </div>
       </article>`).join('');
 
-    /* ===== BANNERS ===== */
-    function setBanner(id, url){
-      const wrap = document.getElementById(id).querySelector('.banner-media');
-      wrap.innerHTML = robustImg(url, false, '');
-    }
-    setBanner('bn-discount','https://i.ibb.co/v4FtNPkf/54.png');
-    setBanner('bn-delivery','https://i.ibb.co/PzPk1zWD/55.png');
-    setBanner('bn-consult','https://i.ibb.co/xKQ9Vxsr/56.png');
+    // Баннеры — тоже из локальных файлов, чтобы красиво и стабильно
+    function setBanner(id, file){ document.getElementById(id).querySelector('.banner-media').innerHTML = `<img src="assets/${file}" alt="" loading="lazy" decoding="async">`; }
+    setBanner('bn-discount','54.png');
+    setBanner('bn-delivery','55.png');
+    setBanner('bn-consult','56.png');
   </script>
 </body>
 </html>
